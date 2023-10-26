@@ -12,7 +12,10 @@ def create_app():
 
   # BLUEPRINT
   from .views.user import user
+  from .views.admin import admin
+
   app.register_blueprint(user, url_prefix="/")
+  app.register_blueprint(admin, url_prefix="/admin")
 
   
 

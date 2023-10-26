@@ -1,0 +1,51 @@
+{% extends "auth_base.html" %}
+
+{% block content %}
+<div class="container  justify-content-center d-flex my-5 pt-5">
+    <div class="row neumorphic-card">
+        <div class="col-md-6 auth_img image-overlay">
+        </div>
+        
+        <div class="col-md-6">
+                <div class=" auth-card p-4">
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename='user/Hotel_Black.png') }}" alt="Company Logo" class="logo img-fluid" width="100">
+                    </div>
+                
+                    <h2 class="mb-4 mt-3 auth_font text-center">Sign Up</h2>
+                    <form class="lgr">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username">
+                        </div>
+           
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Date of Birth</label>
+                            <input type="date" class="form-control" id="DOB" name="DOB" aria-describedby="DOB">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+
+                        </div>
+                
+                        <div class="mb-3">
+                            <label for="Password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="Password">
+                        </div>
+                
+                        <a href="" style="color: #808080;">Forgot password?</a>
+                        <div class="text-center button mt-3">
+                            <input type="submit" class="form-control" id="submit" name="submit">
+                        </div>
+                        
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
