@@ -26,6 +26,15 @@
     transition: background-color 0.5s ease; 
   }
   
+  /* General page's header's navbar */
+  .pg_navbar{
+    background-color: transparent;
+  }
+
+  .pg_hr{
+    color: #fff;
+  }
+
   .sticky {
     position: sticky;
     top: 0;
@@ -157,4 +166,168 @@
         flex-direction: column;
         line-height: 1.3rem;
     }
+}
+
+/* Login and Signup html */
+.logo {
+  /* max-width: 150px; */
+  margin-top: 30x;
+}
+
+.image-overlay {
+  position: relative;
+  overflow: hidden;
+  background-image: url('https://images.pexels.com/photos/2957461/pexels-photo-2957461.jpeg?auto=compress&cs=tinysrgb');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  object-fit: cover; 
+}
+
+/*  for page's header */
+.pg_image-overlay{
+  position: relative;
+  overflow: hidden;
+  background-image: url('https://demo2.wpopal.com/rominal/wp-content/uploads/2021/04/breadcrumb.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  width: 100%;
+  height: 65vh;
+
+  /* Styles for the overlay */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9); 
+}
+}
+
+.image-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Adjust the overlay color and opacity */
+  z-index: 1;
+}
+
+
+
+.neumorphic-card {
+  margin-top: 4rem;
+  background: #FFF;
+  border-radius: 10px;
+  box-shadow: -8px -8px 15px rgba(236,240,243, 0.8), 
+                5px 5px 15px rgba(236,240,243, 0.9);
+  width: 80%;
+  height: auto;
+}
+
+.auth_font{
+  font-family: var(--header-font-family);
+  letter-spacing: .3rem;
+}
+
+.auth_img img{
+  height: auto;
+  width: 20rem;
+}
+.lgr input{
+  margin-bottom: 2px;
+  border-color: var(--primary-color);
+  background-color: #F7F8FA;
+  height: 1.9rem;
+}
+
+.lgr input:focus{
+  border-color: var(--primary-color);
+  box-shadow: none;
+}
+
+.auth-card label{
+  font-family: var(--text-font-family);
+  color: var(--light-text-color);
+  font-size: small;
+}
+
+.auth-card .button input{
+  background-color: var(--primary-color);
+  font-size: .9rem;
+}
+
+
+/* Styling for rooms page */
+.breadcrumb-item + .breadcrumb-item::before {
+  content: '>'; 
+  color: white; 
+  padding: 0 5px; 
+}
+.room-card {
+  width: 30%;
+  position: relative;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  margin: 1rem;
+  padding: 0;
+}
+
+.room-card .room-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.room-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.room-card .bottom-right .price {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.room-card .room-details, 
+.room-card .bottom-right:last-child,
+.room-card .bottom-left {
+  padding: 5px 10px;
+}
+
+.room-details p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.stars {
+  color: #F9E000;
+}
+
+.room-card a {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .room-card {
+    flex-basis: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .room-card {
+    flex-basis: 100%;
+  }
 }
