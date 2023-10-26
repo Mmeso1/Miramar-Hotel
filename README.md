@@ -24,7 +24,7 @@ A project to create a hotel web app that has both admin and user side for bookin
 
 - Name your classes when styling explicitly to avoid clashing of styles when merged. Remember what we discussed.
 
-- When creating a page and you want to see it, remember to create a route for it in views.py. See the syntax I used for the landing page and do yours. Please note two functions (in Python it is declared with def) should have the same name. Better yet, it should be the name of the page you are doing.
+- When creating a page and you want to see it, remember to create a route for it in user.py for the user side forntend in the views folder, else do it in the admin.py. See the syntax I used for the landing page and do yours. Please note two functions (in Python it is declared with def) should have the same name. Better yet, it should be the name of the page you are doing.
 
 - If you have a component to create that will be reused, you can create a file and put it there and then extend it and call the block content and endblock content to include it in that particular part. If it chokes, please let me know. It will be needed on some pages that some elements will be reused, like the rest of the nav pages, aside from Home and Profile, the header where the picture is that contains the name of the page. I will create it and make a video if needed on how to use it, but I believe you'll figure it out.
 
