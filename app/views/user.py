@@ -24,6 +24,11 @@ def register_page():
 def login_page():
     return render_template("login.html")
 
+@user.route("/nearbyplaces")
+def nearbyplaces():
+    return render_template("nearbyplaces.html")
+
+
 @user.route("/rooms")
 def rooms_page():
     page="Rooms"
