@@ -5,6 +5,7 @@ user = Blueprint("user", __name__)
 
 # LOGIN ROUTE (VIEW)
 @user.route("/")
+@user.route("/home")
 def landing_page():
     return render_template("user/landing.html")
 
