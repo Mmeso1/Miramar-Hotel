@@ -1,0 +1,102 @@
+{% extends "page_header.html" %}
+
+{% block title %}
+Contact us - Miriamar
+{% endblock title %}
+
+{% block customStyles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='contact_us.css') }}">
+{% endblock customStyles %}
+
+{% block parent_content %}
+
+<section class="contact_us_con">
+  <div class="contact_us_grid_con">
+    <div class="contact_info_left_sec">
+      <div class="contact_info_left_sec_details">
+        <h1>Contact Info</h1>
+        <p id="first_text">
+          Want to make enquiries? Contact us with the below details. Dictum
+          varius duis at consectetur lorem donec massa sapien faucibus.
+          Tincidunt arcu non sodales neque sodales ut etiam sit amet.
+        </p>
+
+        <div class="left_sec_info_details">
+          <i class="bi bi-geo-alt"></i>
+          <div>
+            <h3>Address</h3>
+            <p>24 Orchard Rd, Singapore 238886</p>
+          </div>
+        </div>
+        <div class="left_sec_info_details">
+          <i class="bi bi-telephone" id="telephone_icon"></i>
+          <div>
+            <h3 id="phone_numbers">
+              <span id="plus_span">+</span> 844 1800 - 333 55<br /><span
+                id="plus_span"
+                >+</span
+              >
+              844 1755 - 444 11
+            </h3>
+          </div>
+        </div>
+        <div class="left_sec_info_details">
+          <i class="bi bi-envelope-open"></i>
+          <div>
+            <h3>Email</h3>
+            <p>contact@miriamar.com</p>
+          </div>
+        </div>
+        <div class="left_sec_info_details">
+          <i class="bi bi-clock"></i>
+          <div>
+            <h3>Business Hours</h3>
+            <p>Mon- Sat: 10:00 AM - 20:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact_info_right_sec">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.793047518711!2d103.8465631!3d1.298943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19bd372012b7%3A0x11e63e567e792634!2s24%20Orchard%20Rd%2C%20Singapore%20238886!5e0!3m2!1sen!2sng!4v1698347717350!5m2!1sen!2sng"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+        <h1>Get In Touch</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt.
+        </p>
+        <div class="contact_info_form">
+
+            <input
+              type="text"
+              name="your_name"
+              id="name_input"
+              placeholder="Enter your name*"
+            />
+            <input
+              type="email"
+              name="email_input"
+              id="email_input"
+              placeholder="Enter your email*"
+            />
+            <textarea
+              name="message"
+              id="message_text_area"
+              cols="30"
+              rows="6"
+              placeholder="Message*"
+            ></textarea>
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+  </div>
+</section>
+{% endblock parent_content %}
+
+

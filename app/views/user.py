@@ -32,4 +32,9 @@ def nearbyplaces():
 @user.route("/rooms")
 def rooms_page():
     page="Rooms"
-    return render_template("user/rooms.html", page_name=page)
+    return render_template("user/rooms.html", page_name=page)@user.route("/rooms")
+
+@user.route("/contact_us")
+def contact_us():
+    page="Contact"
+    return render_template("contact_us.html", page_name=page)
