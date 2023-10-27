@@ -12,6 +12,10 @@
     box-sizing: border-box;
 }
 
+body{
+  background-color: #F3F5F6;
+}
+
 .nav_page_header{
     color: #fff;
     justify-content: space-between;
@@ -166,6 +170,10 @@
         flex-direction: column;
         line-height: 1.3rem;
     }
+
+    .font-sz-sm-md {
+      font-size: 1rem; 
+    }
 }
 
 /* Login and Signup html */
@@ -218,8 +226,6 @@
   background: rgba(0, 0, 0, 0.3); /* Adjust the overlay color and opacity */
   z-index: 1;
 }
-
-
 
 .neumorphic-card {
   margin-top: 4rem;
@@ -274,11 +280,20 @@
   width: 30%;
   position: relative;
   border: 1px solid #e0e0e0;
+  border-radius: 4px;
   overflow: hidden;
   margin: 1rem;
+  background-color: #fff;
   padding: 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+  transform: scale(1);
+  box-shadow: none;
 }
 
+.room-card:hover{
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
 .room-card .room-image {
   position: relative;
   overflow: hidden;
@@ -307,7 +322,7 @@
   padding: 5px 10px;
 }
 
-.room-details p {
+.room-card .room-details p {
   margin: 0;
   font-size: 14px;
 }
@@ -330,4 +345,174 @@
   .room-card {
     flex-basis: 100%;
   }
+}
+
+/* Room details style */
+
+.hotel-info {
+  display: flex;
+}
+
+.info-item {
+  display: inline-flexbox;
+  margin-right: 10px; 
+}
+
+.info-item p{
+  font-family: var(--text-font-family);
+}
+
+.info-item i{
+  color: var(--light-text-color);
+  font-size: larger;
+}
+
+.info-item i,
+.info-item p{
+  vertical-align: middle;
+}
+
+.room-carousel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+}
+
+.room-carousel img {
+  width: 100%; 
+  height: 95vh; 
+  object-fit: cover;
+  object-position: center center;
+}
+
+.owl-prev,
+.owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #000;
+}
+
+.owl-prev {
+    left: 10px;
+}
+.owl-prev,  .owl-next{
+  color: #fff !important; 
+  font-size: 5rem !important; 
+}
+.owl-next {
+    right: 10px;
+}
+
+.normal_deets_font{
+  font-size: 14px;
+  color: var(--light-text-color);
+  font-family: var(--text-font-family);
+  line-height: 1.7em;
+  font-weight: 500;
+}
+
+.deets_bg{
+  background-color: #fff;
+  padding: 2rem;
+}
+
+.ff_marce{
+  font-family: var(--header-font-family);
+}
+/* The card in the room details */
+.tal{
+  text-align: left;
+}
+.booking-form .card-top {
+  background-color: yellow;
+  padding: 15px;
+  font-family: 'Marcellus', sans-serif;
+  text-align: center;
+}
+
+.booking-form .card-top .price {
+  color: black;
+}
+
+.booking-form .card-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.booking-form .form-group {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* Calendar styling */
+.booking-form .form-group i.fa-regular.fa-calendar-days {
+  position: absolute;
+  left: 10px; 
+  margin-right: 10px;
+  color: #808080;
+}
+
+
+.flatpickr-input,
+.flatpickr-day {
+  font-family: var(--text-font-family);
+  caret-color: transparent;
+}
+
+.flatpickr-input::placeholder,
+.flatpickr-input {
+  padding-left: 1.2rem;
+  color: #000;
+  font-weight: 300;
+}
+
+.flatpickr-input{
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+}
+
+.flatpickr-input:focus{
+  box-shadow: none;
+}
+
+.form-group i.fa-regular.fa-calendar-days,
+.flatpickr-input::placeholder{
+  vertical-align: middle;
+}
+
+.flatpickr-day.selected
+{
+  background-color: var(--primary-color);
+}
+
+.flatpickr-current-month {
+  font-family: var(--header-font-family);
+}
+.flatpickr-calendar {
+  border: 2px solid var(--primary-color);
+}
+
+.flatpickr-day.today{
+  border-color: transparent;
+  border-color: #F9E000 ;
+}
+
+.booking-form .button input{
+  background-color: #FFE500;
+  color: #fff;
+  border: transparent;
+  width: 60%;
+  border-radius: 0;
+  padding: .5rem .3rem;
+}
+
+.booking-form .button input:hover{
+  transform: scale(90%, 90%);
 }

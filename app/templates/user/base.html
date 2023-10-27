@@ -19,13 +19,25 @@
     <!-- J-Query -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- Owl Carousel JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- Include Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- Include Flatpickr JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 </head>
 <body >
     <div class="nav_page_header d-flex align-items-center fsz-sm-md">
         <a>Reservation number: <span style="color: #F9E000;">+1253653875</span></a>
         <a>24 Orchard Road, Singapore 238825</a>
-        <a href="" style="color: #F9E000; font-size: small; text-decoration: none;">BOOK YOUR STAY</a>
+        <a href="{{ url_for('user.rooms_page') }}" style="color: #F9E000; font-size: small; text-decoration: none;">BOOK YOUR STAY</a>
     </div>
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container-fluid mx-auto">
@@ -112,6 +124,5 @@
     
     <!--User's css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='user/style.css') }}">
-
 </body>
 </html>

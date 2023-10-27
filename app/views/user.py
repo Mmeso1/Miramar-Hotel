@@ -20,3 +20,7 @@ def login_page():
 def rooms_page():
     page="Rooms"
     return render_template("user/rooms.html", page_name=page)
+
+@user.route("/room-details")
+def room_deets():
+    return render_template("user/room_details.html")

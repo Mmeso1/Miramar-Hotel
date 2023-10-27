@@ -1,0 +1,135 @@
+{% extends "user/base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="room-deets">
+        <h1 class="room-name auth_font">Luxury Suite</h1>
+        <div class="hotel-info">
+            <div class="info-item d-flex">
+                <i class="fas fa-users mx-1"></i>
+                <p class="mx-1">2 People</p>
+            </div>
+            <div class="info-item d-flex">
+                <i class="fas fa-square mx-1"></i>
+                <p class="mx-1">50 m2</p>
+            </div>
+        </div>        
+    </div>    
+
+    <div class="room-carousel owl-carousel">
+        <div><img src="https://images.pexels.com/photos/2873951/pexels-photo-2873951.jpeg?auto=compress&cs=tinysrgb" alt="Image 1"></div>
+        <div><img src="https://images.pexels.com/photos/271631/pexels-photo-271631.jpeg?auto=compress&cs=tinysrgb" alt="Image 2"></div>
+        <div><img src="https://images.pexels.com/photos/271815/pexels-photo-271815.jpeg?auto=compress&cs=tinysrgb" alt="Image 3"></div>
+    </div>
+
+    <div class="room-deets mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="room-description deets_bg">
+                    <h2 class="ff_marce mb-5">Description</h2>
+                    <p class="normal_deets_font">This is a beautiful luxury suite with all the amenities you need for a comfortable stay.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, eveniet pariatur. Dolorem alias amet voluptate magnam hic, est dolore quasi doloribus praesentium natus nisi corrupti at quibusdam ea possimus et? <br>
+                        <br>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid saepe debitis voluptas eum blanditiis? Autem officiis quas architecto provident vitae, odio, omnis ipsa, necessitatibus aspernatur totam ullam aliquid vero minima?
+                    </p>
+                </div>
+
+                <div class="amenities-box deets_bg mb-5 mt-5">
+                    <h2 class="ff_marce mb-5">Amenities</h2>
+                    <div class="amenities row">
+                        <div class="col-md-4 d-flex">
+                            <i class="fa-solid fa-wifi mx-2"></i>
+                            <p class="mx-2">Fast Free Wi-Fi</p>
+                        </div>
+                        <div class="col-md-4 d-flex">
+                            <i class="fa-solid fa-tv mx-2"></i>  
+                            <p class="mx-2">Flat-screen TV</p>
+                        </div>
+                        <div class="col-md-4 d-flex">
+                            <i class="fa-solid fa-mug-hot mx-2"></i>
+                            <p class="mx-2">Tea Maker</p>
+                        </div>
+                        <div class="col-md-4 d-flex">
+                            <i class="fa-solid fa-bed  mx-2"></i>
+                            <p class="mx-2">King sized bed</p>
+                        </div>
+                        <div class="col-md-4 d-flex">
+                            <i class="fa-solid fa-water-ladder mx-2"></i> 
+                            <p class="mx-2">Swimming pool</p>
+                        </div>
+                        <div class="col-md-4 d-flex">
+                            <i class="fa-solid fa-map mx-2"></i>
+                            <p class="mx-2">City Map</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="booking-form card">
+                    <div class="card-top">
+                        <p class="price tal">from <br> <span class="font-sz-sm-md" style="font-size: 2.5rem">$200</span>/night</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4 tal">
+                            <h4 class="ff_marce">Booking Form</h4>
+                        </div>
+                        <form action="" method="POST">
+                            <div class="form-group">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <input type="text" class="flatpickr-input" id="customDatePicker" placeholder="Arrival Date">
+                            </div>
+                            <div class="form-group">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <input type="text" class="flatpickr-input" id="customDatePicker" placeholder="Departure Date">
+                            </div>
+                            
+                            <div class="extra-services mt-5">
+                                <hr>
+                                <h3 class="tal ff_marce">Extra Services</h3>
+                                <ol class="list-unstyled tal">
+                                    <li>Cleaning  &nbsp;&nbsp; _________________________  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $20</li>
+                                    <li>Room Service &nbsp;&nbsp;  ____________________   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$15</li>
+                                    <li>Airport Shuttle  &nbsp;&nbsp; _____________________  &nbsp;&nbsp; $30</li>
+                                </ol>
+                            </div>   
+                            
+                            <div class="text-center button mt-5">
+                                <input type="submit" class="form-control" id="submit" name="book" value="BOOK NOW">
+                            </div>
+                        </form>              
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Initialize Owl Carousel
+    $('.room-carousel').owlCarousel({
+    items: 1, 
+    loop: true, 
+    autoplay: false, 
+    nav: true,
+    dots: false,
+});
+
+$(function () {
+        $("#arrivalDate").datepicker();
+        $("#departureDate").datepicker();
+    });
+
+    flatpickr("#customDatePicker", {
+        altInput: true,
+        altFormat: "F j, Y",
+        dateFormat: "Y-m-d",
+        minDate: "today",
+        // defaultDate: "today",
+        allowInput: true,
+        // theme: "airbnb",
+        // inline:true,
+    });
+</script>
+{% endblock %}
