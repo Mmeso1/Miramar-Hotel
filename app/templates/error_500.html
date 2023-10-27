@@ -10,12 +10,11 @@ Internal server error - Miriamar
 
 {% block content %}
 <section class="error_404_container">
-    <div class="error_bg_img">
-</div>
-        <h1 class="text_404">500</h1>
+    <div class="error_bg_img"></div>
+    <h1 class="text_404">500</h1>
     <span class="error_text">Oops! Internal Server Error</span>
     <p class="error_text_desc">Something went wrong from our side. Try refreshing the browser or go back to Previous page</p>
 
-        <button class="back_to_homepage_btn" type="button">Back To Homepage</button>
+    <a href="{{ url_for('user.landing_page') }}"><button class="back_to_homepage_btn" type="button">Back To Homepage</button></a>
 </section>
 {% endblock content %}
