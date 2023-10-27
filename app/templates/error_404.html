@@ -1,0 +1,24 @@
+{% extends "user/base.html" %}
+
+{% block title %}
+Page not found - Miriamar
+{% endblock title %}
+
+{% block customStyles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='errors.css') }}">
+{% endblock customStyles %}
+
+{% block content %}
+
+
+    <section class="error_404_container">
+        <div class="error_bg_img">
+    </div>
+            <h1 class="text_404">404</h1>
+        <span class="error_text">Oops! Page Not Found</span>
+        <p class="error_text_desc">Page doesn’t exist or some other error occurred. Go to our Home page or go back to Previous page</p>
+
+            <button class="back_to_homepage_btn" type="button">Back To Homepage</button>
+    </section>
+
+{% endblock content %}
