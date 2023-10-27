@@ -9,14 +9,6 @@ user = Blueprint("user", __name__)
 def landing_page():
     return render_template("user/landing.html")
 
-@user.route("/error_404") 
-def error_404():
-    return render_template('error_404.html')
-
-@user.route("/error_500") 
-def error_500():
-    return render_template('error_500.html')
-
 @user.route("/register")
 def register_page():
     return render_template("register.html")
@@ -27,7 +19,8 @@ def login_page():
 
 @user.route("/nearbyplaces")
 def nearbyplaces():
-    return render_template("nearbyplaces.html")
+    page="Nearbyplaces"
+    return render_template("user/nearbyplaces.html", page_name=page)
 
 
 @user.route("/rooms")
@@ -37,9 +30,9 @@ def rooms_page():
 
 @user.route("/room-details")
 def room_deets():
-    return render_template("user/room_details.html")@user.route("/rooms")
+    return render_template("user/room_details.html")
 
 @user.route("/contact_us")
 def contact_us():
     page="Contact"
-    return render_template("contact_us.html", page_name=page)
+    return render_template("user/contact_us.html", page_name=page)
