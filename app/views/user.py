@@ -36,4 +36,9 @@ def rooms_page():
 
 @user.route("/room-details")
 def room_deets():
-    return render_template("user/room_details.html")
+    return render_template("user/room_details.html")@user.route("/rooms")
+
+@user.route("/contact_us")
+def contact_us():
+    page="Contact"
+    return render_template("contact_us.html", page_name=page)

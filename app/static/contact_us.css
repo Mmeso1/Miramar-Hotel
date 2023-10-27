@@ -1,0 +1,199 @@
+* {
+    font-family: "Marcellus", serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+ .contact_us_con {
+    background-color: #eef0f8;
+    padding: 3rem 2rem;
+
+  }
+  .contact_us_grid_con{
+    display: grid;
+    width: inherit;
+    height: auto;
+    grid-template-columns:  1fr 2fr;
+    column-gap: 2rem;
+  }
+  .contact_info_left_sec{
+    display: flex;
+    flex-direction: column;
+    border-right: #8a89898e 1px solid;
+  }
+  .contact_info_left_sec_details{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    row-gap: 2rem;
+  }
+  .contact_info_left_sec_details > h1 {
+    font-size: 3.5rem;
+    font-weight: lighter;
+  }
+  #first_text {
+    text-align: center;
+  }
+  .contact_info_left_sec_details  p {
+    color: #666666;
+  }
+  .contact_info_left_sec_details  h3 {
+    font-weight: lighter;
+  }
+  #plus_span {
+    color: #666666;
+}
+
+  .left_sec_info_details{
+    width: 20rem;
+    display: flex;
+  }
+  .left_sec_info_details > div{
+    display: inline-block;
+  }
+  .left_sec_info_details > i {
+    font-size: 2rem;
+    text-align: center;
+    margin-right: 2rem;
+  }
+  .left_sec_info_details > div > h3{
+    margin-bottom: .5rem;
+  }
+
+  iframe{
+    width: 100%;
+  }
+  .contact_info_right_sec {
+    padding: 0rem 2rem;
+  }
+  .contact_info_right_sec >h1{
+    margin-top: 3rem;
+    font-size: 2.5rem;
+    font-weight: lighter;
+  }
+  .contact_info_right_sec > p {
+    color: #666666;
+    font-size: 1rem;
+
+  }
+  .contact_info_form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+  }
+  .contact_info_form > input {
+    border: none;
+    outline: none;
+    color: #666666;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+  }
+  .contact_info_form > textarea {
+    outline: none;
+    border: none;
+    color: #666666;
+    margin-bottom: 1rem;
+    padding: 1rem 1rem;
+    resize: none;
+  }
+  .contact_info_form > button {
+    background-color: #ffe500;
+    padding: 10px 10px;
+    text-align: center;
+    line-height: 29.4px;
+    letter-spacing: 1px;
+    border: none;
+    outline: none;
+    transition: all .3s ease-in;
+    text-transform: uppercase;
+    width: 10rem;
+  }
+
+  /* MEDIA QUERIES */
+  @media screen and (min-device-width: 768px) and (max-device-width: 1024px){
+    .contact_us_grid_con{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 2rem 0rem;
+    }
+    .contact_info_left_sec{
+        border: none;
+    }
+    .contact_info_left_sec_details{
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 5rem;
+    }
+    .contact_info_left_sec_details > h1 {
+        font-size: 2rem;
+    }
+    #first_text{
+        text-align: start;
+    }
+    .contact_info_right_sec{
+        padding: 0;
+    }
+  
+  }
+  @media screen and (min-device-width: 320px) and (max-device-width: 425px){
+    .contact_us_grid_con{
+        display: flex;
+        flex-direction: column;
+        }
+    .contact_info_left_sec{
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 6 1fr;
+        border: none;
+        margin-bottom: 3rem;
+    }
+    .contact_info_left_sec_details > h1 {
+        text-align: center;
+    }
+    .left_sec_info_details > i{
+        text-align: center;
+    }
+    .contact_info_left_sec_details{
+        row-gap: 0;
+    }
+
+    .left_sec_info_details > div{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .contact_info_form > button{
+        width: 100%;
+    }
+    .contact_info_left_sec_details{
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+    }
+    .contact_info_left_sec_details > h1{
+        font-size: 2rem;
+    }
+    iframe{
+        height: 22rem;
+    }
+    .contact_info_right_sec{
+        padding: 0;
+    }
+    .contact_info_right_sec{
+        text-align: center;
+    }
+    .left_sec_info_details{
+        flex-direction: column;
+        align-items: center;
+        justify-self: center;
+        margin-bottom: 1rem;
+    }
+
+    .left_sec_info_details > i{
+        margin: 0;
+    }
+
+}
