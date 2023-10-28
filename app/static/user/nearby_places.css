@@ -1,0 +1,466 @@
+* {
+    font-family: "Marcellus", serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nearbyplace_page_con {
+    background-color: white;
+    text-align: center;
+    margin-left: 7px;
+    margin-right: 7px;
+  }
+  
+  .nearbyplaces_header_con_img {
+    width: 100%;
+    height: 25rem;
+    background-image: url("https://demo2.wpopal.com/rominal/wp-content/uploads/2021/04/breadcrumb.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+    margin-bottom: 4rem;
+  }
+  
+  .nearbyplaces_header_con_img > small {
+    color: whitesmoke;
+    font-size: 1.1rem;
+    font-weight: lighter;
+    opacity: 1;
+  }
+  
+  .nearbyplaces_header_con_img > h2 {
+    color: white;
+    font-size: 4.5rem;
+    margin-bottom: 0.8rem;
+    font-weight: lighter;
+    overflow: hidden;
+  }
+  .nearbyplaces_map_con {
+    height: auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+  }
+  
+  .nearbyplaces_center_text_con {
+    display: flex;
+    align-self: center;
+    height: 9rem;
+    max-width: 31rem;
+    justify-content: center;
+    align-items: top;
+    margin-bottom: 2rem;
+  }
+  
+  .nearbyplaces_center_text {
+    font-size: 3.5rem;
+    font-weight: lighter;
+    text-align: center;
+    text-wrap: wrap;
+
+  }
+  
+  .nearbyplaces_times_square_and_map_con {
+    width: inherit;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr 2fr);
+    grid-template-rows: 1;
+    gap: 1.5%;
+  }
+  
+  .nearbyplaces_map_con_times_square_con_img {
+    height: 300px;
+    margin-bottom: 1rem;
+  }
+  
+  .nearbyplaces_map_con_map {
+    background-image: url("https://demo2.wpopal.com/rominal/wp-content/uploads/2021/04/Hotspots-image-1.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 40rem;
+  }
+  #location1 {
+    font-size: 2.5rem;
+    color: #ffe500;
+    position: relative;
+    top: 20px;
+    left: 30px;
+    cursor: pointer;
+  }
+  #location2 {
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    top: 450px;
+    left: -80px;
+  }
+  #location2:hover {
+    color: #ffe500;
+  }
+  #location3:hover {
+    color: #ffe500;
+  }
+  #location4:hover {
+    color: #ffe500;
+  }
+  #location5:hover {
+    color: #ffe500;
+  }
+  #location3 {
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    top: 450px;
+    left: 80px;
+  }
+  #location4 {
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    top: 200px;
+    left: 200px;
+  }
+  #location5 {
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    top: 370px;
+    left: -200px;
+  }
+  
+  .nearbyplaces_map_con_times_square_con_text {
+    font-size: 1.8rem;
+    font-weight: lighter;
+    margin-bottom: 1rem;
+  }
+  .nearbyplaces_map_con_times_square_con_small {
+    font-size: 1rem;
+    color: #666666;
+    font-weight: light;
+  }
+  
+  .highlights_con {
+    display: grid;
+    margin: 7rem 0 0rem 0;
+    padding: 0 2rem;
+    justify-content: center;
+  }
+  
+  .highlights_center_text {
+    font-size: 3.5rem;
+    font-weight: lighter;
+    text-align: center;
+    text-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+  }
+  
+  .highlights_items_con {
+    width: inherit;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2rem 2rem;
+    display: grid;
+    padding: 2rem 2rem;
+  }
+  
+  .highlight_item_box {
+    width: 100%;
+  }
+  .highlights_item1_img {
+    background-image: url("https://demo2.wpopal.com/rominal/wp-content/uploads/2021/04/Highlights_image_01.jpg");
+    width: inherit;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    transition: 3s all ease-in-out;
+  }
+  
+  .highlights_item1_img:hover {
+    transform: scale(1.2);
+    width: 100%;
+    cursor: pointer;
+  }
+  .highlights_item2_img:hover {
+    transform: scale(1.2);
+    width: 100%;
+    cursor: pointer;
+  }
+  .highlights_item3_img:hover {
+    transform: scale(1.2);
+    width: 100%;
+    cursor: pointer;
+  }
+  .highlights_item4_img:hover {
+    transform: scale(1.2);
+    width: 100%;
+    cursor: pointer;
+  }
+  .highlights_item5_img:hover {
+    transform: scale(1.2);
+    width: 100%;
+    cursor: pointer;
+  }
+  .highlights_item6_img:hover {
+    transform: scale(1.2);
+    width: 100%;
+    cursor: pointer;
+  }
+  .highlights_item7_img:hover {
+    transform: scale(1.2);
+    width: 100%;
+    cursor: pointer;
+  }
+  .highlights_item8_img:hover {
+    transform: scale(1.2);
+    width: 100%;
+    cursor: pointer;
+  }
+  .highlights_item9_img:hover {
+    transform: scale(1.2);
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .highlights_item2_img {
+    background-image: url("https://demo2.wpopal.com/rominal/wp-content/uploads/2021/04/Highlights_image_04.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    overflow: hidden;
+    transition: 3s all ease-in-out;
+  }
+  
+  .highlights_item3_img {
+    background-image: url("https://demo2.wpopal.com/rominal/wp-content/uploads/2021/04/Highlights_image_08.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    transition: 3s all ease-in-out;
+  }
+  
+  .highlights_item4_img {
+    background-image: url("https://demo2.wpopal.com/rominal/wp-content/uploads/2021/04/Highlights_image_02.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    transition: 3s all ease-in-out;
+  }
+  .highlights_item5_img {
+    background-image: url("https://demo2.wpopal.com/rominal/wp-content/uploads/2021/04/Highlights_image_07.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    transition: 3s all ease-in-out;
+  }
+  
+  .highlights_item6_img {
+    background-image: url("https://demo2.wpopal.com/rominal/wp-content/uploads/2021/04/Highlights_image_09.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    transition: 3s all ease-in-out;
+  }
+  
+  .highlights_item7_img {
+    background-image: url("https://demo2.wpopal.com/rominal/wp-content/uploads/2021/04/Highlights_image_07.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    transition: 3s all ease-in-out;
+  }
+  
+  .highlights_item8_img {
+    background-image: url("https://demo2.wpopal.com/rominal/wp-content/uploads/2021/04/Highlights_image_03.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    transition: 3s all ease-in-out;
+  }
+  
+  .highlights_item9_img {
+    background-image: url("https://demo2.wpopal.com/rominal/wp-content/uploads/2021/04/Highlights_image_05.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    transition: 3s all ease-in-out;
+  }
+  
+  .highlights_item1_img_text_content {
+    text-align: start;
+  }
+  
+  .highlights_item1_img_text_content_title {
+    font-size: 1.3rem;
+    font-weight: lighter;
+  }
+  .highlights_item1_img_text_content > small {
+    font-size: 0.9rem;
+  }
+  
+  .highlights_img_con {
+    height: 350px;
+    overflow: hidden;
+  }
+  
+  /* MEDIA QUERIES */
+  /* responsiveness for devices more than 1024px wide */
+  @media screen and (min-device-width: 1024px) {
+    .highlights_items_con {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+    .nearbyplaces_center_text_con {
+      max-width: 37rem;
+    }
+    .nearbyplaces_times_square_and_map_con {
+      grid-template-columns: repeat(1, 1fr 2fr);
+    }
+  }
+  
+  /* responsiveness for 768px - 1024px */
+  
+  @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .highlights_items_con {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+    .highlights_center_text,
+    .nearbyplaces_center_text {
+      font-size: 3rem;
+    }
+  
+    .nearbyplaces_times_square_and_map_con {
+      grid-template-columns: repeat(1, 1fr 2.5fr);
+    }
+    .nearbyplaces_map_con_map {
+      height: 25rem;
+      width: 100%;
+    }
+    .nearbyplaces_map_con_times_square_con_img {
+      height: 200px;
+      width: 100%;
+    }
+    #location1 {
+      color: #fff;
+      font-size: 2rem;
+    }
+  
+    #location2 {
+      top: 300px;
+    }
+    #location3 {
+      top: 15px;
+      left: 160px;
+    }
+    #location4 {
+      left: 30px;
+    }
+    #location5 {
+      color: #ffe500;
+      top: 170px;
+      font-size: 2.5rem;
+    }
+    .nearbyplaces_header_con_img {
+      height: 22rem;
+    }
+    .nearbyplaces_header_con_img > h2 {
+      font-size: 3.5rem;
+    }
+  }
+  
+  /* responsiveness for 450px - mobile devices */
+  
+  @media screen and (min-device-width: 320px) and (max-device-width: 425px) {
+    .highlights_items_con {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(9, 1fr);
+    }
+    .nearbyplaces_center_text,
+    .highlights_center_text,
+    .nearbyplaces_header_con_img > h2 {
+      font-size: 2rem;
+    }
+    .nearbyplaces_header_con_img {
+      height: 13rem;
+    }
+    .nearbyplaces_header_con_img > small {
+      font-size: 1rem;
+    }
+    .nearbyplaces_times_square_and_map_con {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: 1fr;
+    }
+  
+    .nearbyplaces_times_square_and_map_con {
+      height: auto;
+    }
+    .nearbyplaces_map_con_map {
+      height: 350px;
+    }
+  
+    #location2 {
+      top: 250px;
+      left: 10px;
+    }
+    #location3 {
+      top: 15px;
+      left: 110px;
+    }
+    #location4 {
+      left: 30px;
+    }
+    #location5 {
+      top: 100px;
+    }
+    .nearbyplaces_map_con_times_square_con {
+      height: fit-content;
+      padding-bottom: 20px;
+    }
+    .highlights_center_text,
+    .nearbyplaces_center_text {
+      font-size: 2rem;
+    }
+    .nearbyplaces_map_con_times_square_con_text {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .nearbyplaces_map_con_times_square_con_small {
+      font-size: 0.9rem;
+    }
+    .nearbyplaces_center_text_con {
+      margin-bottom: 1rem;
+      height: fit-content;
+    }
+    .nearbyplaces_map_con,
+    .highlights_items_con {
+      padding: 0 0.9rem;
+    }
+    .highlights_con {
+      margin: 5rem 0 1rem 0;
+    }
+    .nearbyplaces_header_con_img > small {
+      font-size: 0.8rem;
+    }
+  }

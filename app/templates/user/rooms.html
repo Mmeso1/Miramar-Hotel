@@ -1,11 +1,15 @@
 {% extends "page_header.html" %}
 
+{% block title %}
+Rooms - Miriamar
+{% endblock title %}
+
 {% block parent_content %}
-<div class="container-fluid">
+<div class="container-fluid ">
     <div class="row overlay justify-content-evenly mt-3 mb-3">
 
         <div class="col-lg-4 col-md-6 col-sm-12 room-card">
-          <a href="room_details.html">
+          <a href="{{ url_for('user.room_deets') }}">
             <div class="room-image">
               <img src="https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Room Image">
               <div class="bottom-left">
@@ -29,7 +33,7 @@
         </div>
 
         <div class="col-lg-4 col-md-6 col-sm-12 room-card">
-          <a href="room_details.html">
+          <a href="{{ url_for('user.room_deets') }}">
             <div class="room-image">
               <img src="https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Room Image">
               <div class="bottom-left">
@@ -80,4 +84,4 @@
     </div>
 </div>
 
-{% endblock %}
+{% endblock parent_content%}

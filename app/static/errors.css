@@ -1,0 +1,87 @@
+* {
+    font-family: "Marcellus", serif;
+    margin: 0;
+    padding: 0;
+  }
+  .error_404_container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #eef0f8;
+    padding: 5rem 0rem;
+  }
+  .error_bg_img{
+    width: 23rem;
+    height: 22.5rem;
+    background-image: url("https://demo2.wpopal.com/rominal/wp-content/themes/rominal/assets/images/404/404_bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-bottom: 2rem;
+  }
+  .text_404{
+    font-size: 9rem;
+    font-weight:100;
+    overflow: hidden;
+    position: absolute;
+  }
+  .error_text{
+    line-height: 78px;
+    font-size: 3rem;
+    font-weight: 600;
+    overflow: hidden;
+    text-wrap: nowrap;
+    margin-bottom: 1rem;
+    width: fit-content;
+  }
+  .error_text_desc{
+    font-style: italic;
+    text-wrap: wrap;
+    line-height: 30px;
+    overflow: hidden;
+    line-break: auto;
+    margin-bottom: 5rem;
+  }
+.back_to_homepage_btn{
+    background-color: #ffe500;
+    padding: 10px 10px;
+    text-align: center;
+    line-height: 29.4px;
+    letter-spacing: 1px;
+    border: none;
+    outline: none;
+    transition: all .3s ease-in;
+    text-transform: uppercase;
+    
+}
+.back_to_homepage_btn:hover{
+    cursor: pointer;
+    background-color: #e1cb06;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-device-width: 320px) and (max-device-width: 425px) {
+    .text_404{
+        font-size: 7rem;
+        padding: 1rem 5px;
+    }
+    .error_bg_img{
+        width: 19rem;
+    }
+    .error_text{
+        font-size: 1.6rem;
+        text-align: center;
+        padding: 0 5px;
+
+    }
+    .error_text_desc{
+        text-align: center;
+        padding: 0 5px;
+
+    }
+
+}

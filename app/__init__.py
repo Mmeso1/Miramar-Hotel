@@ -18,5 +18,19 @@ def create_app():
   app.register_blueprint(admin, url_prefix="/admin")
 
   
+  # ERROR 404
+  @app.errorhandler(404)
+  def page_not_found(error):
+    print("404 ERROR:", str(error))
+    return render_template("error_404.html")
+  
+
+  # ERROR 500
+  @app.errorhandler(Exception)
+  def server_error(error):
+    print("500 ERROR:", str(error))
+    return render_template("error_500.html")
+  
+
 
   return app
