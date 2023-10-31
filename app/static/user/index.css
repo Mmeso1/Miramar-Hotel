@@ -7,12 +7,6 @@
 
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body{
     font-family: Arial, Helvetica, sans-serif;
     font-family: var(--font-family);
@@ -54,13 +48,13 @@ header li{
 
 header li:hover{
     color: #8e8e8e;
-}
+} 
 
 #color{
     color: var(--brand-color);
 }
 
-header .btn{
+ header .btn{
     width: auto;
     padding: 1rem;
     color: var(--brand-color);
@@ -75,8 +69,7 @@ header .btn:hover{
 .logo{
     width: 10rem;
 }
-
-nav{
+ .nav1{
     width: 100vw;
     height: 5rem;
     background-color: #fff;
@@ -94,7 +87,7 @@ nav ul{
     justify-content: space-between;
     height: inherit;
     align-items: center;
-}
+} 
 
 .brand-li{
     width: auto;
@@ -130,9 +123,9 @@ nav ul{
     --t: .3s;
 }
 
-.active{
+/* .active{
     background-color: var(--brand-color);
-}
+} */
 
 .hero-sect{
     width: 100vw;
@@ -425,20 +418,20 @@ option
 }
 
 .feature-img.img1{
-     background: rgba(17, 17, 17, 0.224) url(../../templates/assets/spa.jpg)
+     background: rgba(17, 17, 17, 0.224) url(../../static/user/assets/spa.jpg)
      no-repeat center;
      background-size: 100% 100%;
 }
 
 .feature-img.img2{
-     background: rgba(17, 17, 17, 0.224) url(../../templates/assets/wine-glass.jpg)
+     background: rgba(17, 17, 17, 0.224) url(../../static/user/assets/wine-glass.jpg)
      no-repeat center;
      background-size: 100% 100%;
      margin-top: 10rem;
 }
 
 .feature-img.img3{
-     background: rgba(17, 17, 17, 0.224) url(../../templates/assets/couple-vacation.jpg)
+     background: rgba(17, 17, 17, 0.224) url(../../static/user/assets/couple-vacation.jpg)
      no-repeat center;
      background-size: 100% 100%;
 }
@@ -559,13 +552,13 @@ option
 }
 
 .room{
-    background: rgba(17, 17, 17, 0.224) url(../../templates/assets/7041389_437.jpg)
+    background: rgba(17, 17, 17, 0.224) url(../../static/user/assets/7041389_437.jpg)
     no-repeat center;
     background-size: 100% 100%; 
 }
 
 .room2{
-    background: rgba(17, 17, 17, 0.224) url(../../templates/assets/small-hotel-room-interior-with-double-bed-bathroom.jpg)
+    background: rgba(17, 17, 17, 0.224) url(../../static/user/assets/small-hotel-room-interior-with-double-bed-bathroom.jpg)
     no-repeat center;
     background-size: 100% 100%; 
 }

@@ -86,25 +86,25 @@ body{
 
   
   /* Footer */
-  footer{
-    background-color: #262727;
+  .footer{
+    background-color: #2c2c2c;
   }
 
-  footer .newsletter{
+  .footer .newsletter{
     color: #fff;
     font-family: var(--header-font-family);
   }
 
-  footer .newsletter input{
+  .footer .newsletter input{
     width: 50%; 
     margin-right: 0.3rem;
   }
 
-  footer .newsletter input::placeholder{
+  .footer .newsletter input::placeholder{
     font-family: var(--text-font-family);
   }
 
-  footer .newsletter button{
+  .footer .newsletter button{
     background-color: var(--primary-color);
     color: #645A00;
     border: none;
@@ -112,42 +112,6 @@ body{
     font-family: var(--text-font-family);
   }
 
-  .footer_links{
-    color: #fff;
-    justify-content: space-evenly;
-    letter-spacing: 2px;
-    line-height: 1.3rem;
-  }
-
-  .footer_links .info{
-    margin-left: -4rem;
-  }
-
-  .footer_links .info div{
-    margin-right: 3rem;
-  }
-  .footer_links h4{
-    font-size: 1em;
-    color: var(--primary-color);
-    text-transform: uppercase;
-    font-family: var(--header-font-family);
-  }
-
-  .footer_links .quick-links ul li {
-    list-style: none;
-  }
-
-  .footer_links .quick-links ul li a,
-  .footer_links .social-links a ,
-  .footer_links .address p,
-  .footer_links .reservations p{
-    list-style: none;
-    text-decoration: none;
-    font-size: small;
-    letter-spacing: 2px;
-    color: var(--light-text-color);
-    font-family: var(--text-font-family);
-  }
 
   .font-size-sm-md {
     font-size: 1rem; /* Adjust the size as needed */

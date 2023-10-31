@@ -1,78 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Miramar SG</title>
-    <link rel="icon" href="../assets/hotel-miramar-sg-favicon-white.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../app/static/user/index.css">
-</head>
-<body>
-     <header>
-          <ul>
-            <li>Reservation number: <span id="color">(65) 6733 0222</span></li>
-            <li>401 Havelock Road, Singapore 169631</li>
-            <a href=""><li class="btn">BOOK YOUR STAY</li></a>
-          </ul>
-     </header>
-     <nav class="nav1">
-         <ul class="gen-ul">
-            <div class="brand-li">
-                <a href=""><li><img src="../assets/logo-no-background.png" alt="logo" class="logo"></li></a>
-            </div>
-            <div class="other-li">
-                <a href=""><li class="menu active">HOME</li></a>
-                <a href=""><li  class="menu">ROOMS</li></a>
-                <a href=""><li  class="menu">NEARBY PLACES</li></a>
-                <a href=""><li  class="menu">CONTACT</li></a>
-            </div> 
-         </ul>
-     </nav>
+{% extends "user/base.html" %}
 
-     <div class="other-li-side">
-        <nav class="navbar bg-body-tertiary fixed-top">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#"><img src="../assets/logo-no-background.png" alt="logo" class="logo"></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <iconify-icon icon="material-symbols-light:menu" class="menu"></iconify-icon>
-              </button>
-              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
-                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body nav-body">
-                  <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
-                    <li class="nav-item">
-                      <a class="nav-link nav-li" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Rooms</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Nearby Places</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Contact</a>
-                    </li>
-                    
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </nav>
-    </div> 
+{% block content %}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <section class="hero-sect">
+<section class="hero-sect">
         
-            <img id="background-img" src="../assets/grass-luxury-beach-resort-travel.jpg" alt="" class="back-img">
-        
+        <img id="background-img" src="../../static/user/assets/grass_luxury.jpg" alt="" class="back-img">
           <div class="backdrop">
             <div data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
             data-aos-duration="2000" class="headanim">
-                <p class="head">luxury</p>
+                <p class="head">luxury</p>s
             </div>
             <div data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
             data-aos-duration="500">
@@ -132,9 +69,9 @@
         </div>
         <div data-aos="fade-left">
             <div class="about-img">
-                <img src="../assets/The World's First Ever Swim-Up Rondoval Suites.jpg" alt="" class="img3">
-                <img src="../assets/interior1.jpg" alt="" class="img1">
-                <img src="../assets/interior1.jpg" alt="" class="img1">
+                <img src="{{ url_for('static', filename='user/assets/Rondoval_Suites.jpg') }}" alt="" class="img1">
+                <img src="{{ url_for('static', filename='user/assets/interior1.jpg') }}" alt="" class="img1">
+                <img src="{{ url_for('static', filename='user/assets/edit.jpg') }}" alt="" class="img1">
             </div>
         </div> 
     </section> 
@@ -292,39 +229,8 @@
          </div>
     </section>
 
-    <section class="footer-sect">
-          <div class="footnote">
-              <p class="foot-head">QUICK LINKS</p>
-              <p>Home</p>
-              <p>Terms and Conditions</p>
-              <p>FAQ</p>
-          </div>
-          <div class="footnote">
-             <p class="foot-head">ADDRESS</p>
-             <p>100 Orchard St,
-                New York, NY 10002,
-                USA</p>
-          </div>
-          <div class="footnote">
-               <p class="foot-head">RESERVATONS</p>
-               <p>(+844) 1800 3355</p>
-               <p>support@hotel.com</p>
-          </div>
-          <div class="footnote">
-              <p class="foot-head">FOLLOW US</p>
-              <div class="social">
-                <p><iconify-icon icon="mingcute:facebook-fill"></iconify-icon></p>
-                <p><iconify-icon icon="mdi:twitter"></iconify-icon></p>
-                <p><iconify-icon icon="mdi:youtube"></iconify-icon></p>
-              </div>
-              
-              
-          </div>
-    </section>
-<script src="main.js" type="module"></script>   
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>  
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
-<script> AOS.init() </script> 
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> 
-</body>
-</html>
+    <script src="{{url_for('static', filename='user/main.js')}}" type="module"></script>   
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+    <script> AOS.init() </script> 
+
+    {% endblock %}

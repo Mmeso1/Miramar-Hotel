@@ -38,8 +38,8 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 </head>
-<body >
-    <div class="nav_page_header d-flex align-items-center fsz-sm-md">
+<body>
+    <!-- <div class="nav_page_header d-flex align-items-center fsz-sm-md">
         <a>Reservation number: <span style="color: #F9E000;">+1253653875</span></a>
         <a>24 Orchard Road, Singapore 238825</a>
         <a href="{{ url_for('user.rooms_page') }}" style="color: #F9E000; font-size: small; text-decoration: none;">BOOK YOUR STAY</a>
@@ -74,66 +74,104 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
+
+    <header>
+      <ul>
+        <li>Reservation number: <span id="color">(65) 6733 0222</span></li>
+        <li>401 Havelock Road, Singapore 169631</li>
+        <a href=""><li class="btn">BOOK YOUR STAY</li></a>
+      </ul>
+ </header>
+ <nav class="nav1">
+     <ul class="gen-ul">
+        <div class="brand-li">
+            <a href=""><li><img src="../../static/user/Hotel_Black.png" alt="logo" class="logo"></li></a>
+        </div>
+        <div class="other-li">
+            <a href=""><li class="menu active">HOME</li></a>
+            <a href=""><li  class="menu">ROOMS</li></a>
+            <a href=""><li  class="menu">NEARBY PLACES</li></a>
+            <a href=""><li  class="menu">CONTACT</li></a>
+        </div> 
+     </ul>
+ </nav>
+
+ <div class="other-li-side">
+    <nav class="navbar bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="../../static/user/Hotel_Black.png" alt="logo" class="logo"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <iconify-icon icon="material-symbols-light:menu" class="menu"></iconify-icon>
+          </button>
+          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body nav-body">
+              <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link nav-li" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Rooms</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Nearby Places</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contact</a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+</div> 
     
 
     {% block content %}
    
     {% endblock content %}
-
-    <footer class="footer">
-        <div class="container">
-            <div class="newsletter text-center py-4">
-                <h1 class="mb-3 overflow-hidden">Newsletter</h1>
-                <h5 class="mb-4">Subscribe to our newsletter to receive updates and offers.</h5>
-                <form class="d-flex justify-content-center">
-                    <input type="email" class="form-control mr-2" placeholder="Your Email">
-                    <button class="btn btn-primary">Subscribe</button>
-                </form>
-            </div>
-    
-            <hr class="my-5" style="color: #fff;">
-    
-            <div class="footer_links text-center">
-                <div class="row">
-                    <div class="col-md-3 mb-4">
-                        <img src="{{ url_for('static', filename='user/Hotel_White.png') }}" alt="">
-                        <h4>Follow Us</h4>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="quick-links col-md-3 mb-4">
-                        <h4>Quick Links</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Rooms</a></li>
-                            <li><a href="#">Dining</a></li>
-                            <li><a href="#">Events</a></li>
-                        </ul>
-                    </div>
-    
-                    <div class="address col-md-3 mb-4">
-                        <h4>Address</h4>
-                        <p>24 Orchard Road,<br>Singapore 238825</p>
-                    </div>
-    
-                    <div class="reservations col-md-3 mb-4">
-                        <h4>Reservations</h4>
-                        <p>+1253653875</p>
-                        <p>Marimarhotels <br>@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-
+   
+    <section class="footer-sect">
+        <div class="footnote">
+            <p class="foot-head">QUICK LINKS</p>
+            <p>Home</p>
+            <p>Terms and Conditions</p>
+            <p>FAQ</p>
         </div>
-    </footer>
+        <div class="footnote">
+           <p class="foot-head">ADDRESS</p>
+           <p>100 Orchard St,
+              New York, NY 10002,
+              USA</p>
+        </div>
+        <div class="footnote">
+             <p class="foot-head">RESERVATONS</p>
+             <p>(+844) 1800 3355</p>
+             <p>support@hotel.com</p>
+        </div>
+        <div class="footnote">
+            <p class="foot-head">FOLLOW US</p>
+            <div class="social">
+              <p><iconify-icon icon="mingcute:facebook-fill"></iconify-icon></p>
+              <p><iconify-icon icon="mdi:twitter"></iconify-icon></p>
+              <p><iconify-icon icon="mdi:youtube"></iconify-icon></p>
+            </div>
+            
+            
+        </div>
+  </section>
+    
     
     <!--User's css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='user/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='user/index.css') }}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='user/nearby_places.css')}}">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> 
+
 </body>
 </html>
