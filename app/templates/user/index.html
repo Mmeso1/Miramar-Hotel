@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Miramar SG</title>
+    <link rel="icon" href="../assets/hotel-miramar-sg-favicon-white.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../app/static/user/index.css">
+</head>
+<body>
+     <header>
+          <ul>
+            <li>Reservation number: <span id="color">(65) 6733 0222</span></li>
+            <li>401 Havelock Road, Singapore 169631</li>
+            <a href=""><li class="btn">BOOK YOUR STAY</li></a>
+          </ul>
+     </header>
+     <nav class="nav1">
+         <ul class="gen-ul">
+            <div class="brand-li">
+                <a href=""><li><img src="../assets/logo-no-background.png" alt="logo" class="logo"></li></a>
+            </div>
+            <div class="other-li">
+                <a href=""><li class="menu active">HOME</li></a>
+                <a href=""><li  class="menu">ROOMS</li></a>
+                <a href=""><li  class="menu">NEARBY PLACES</li></a>
+                <a href=""><li  class="menu">CONTACT</li></a>
+            </div> 
+         </ul>
+     </nav>
+
+     <div class="other-li-side">
+        <nav class="navbar bg-body-tertiary fixed-top">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="../assets/logo-no-background.png" alt="logo" class="logo"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <iconify-icon icon="material-symbols-light:menu" class="menu"></iconify-icon>
+              </button>
+              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body nav-body">
+                  <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link nav-li" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Rooms</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Nearby Places</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </div> 
+
+    <section class="hero-sect">
+        
+            <img id="background-img" src="../assets/grass-luxury-beach-resort-travel.jpg" alt="" class="back-img">
+        
+          <div class="backdrop">
+            <div data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+            data-aos-duration="2000" class="headanim">
+                <p class="head">luxury</p>
+            </div>
+            <div data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+            data-aos-duration="500">
+                 <p class="intro">LUXURY HOTELS</p>
+            </div>
+            <div data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="2000">
+                    <p class="tagline">Memories that will last forever</p>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="3000">
+                    <button class="buton">VIEW OUR ROOMS</button>
+              </div>
+              
+          </div>
+    </section>
+
+     <div class="search-div">
+        <div class="search">
+             <div class="search-box">
+                <div class="search-head">
+                    <span><iconify-icon icon="ph:fan-thin" class="icon"></iconify-icon></span>Features
+                </div>
+                    <select>
+                        <option selected hidden>Choose</option>
+                        <option value="1" class="hello">Balcony</option>
+                        <option value="2">Lake View</option>
+                        <option value="3">Feature 3</option>
+                    </select>
+                
+            </div>
+             <div class="search-box">
+                <div class="search-head">
+                    <span><iconify-icon icon="solar:calendar-linear" class="icon"></iconify-icon></span>When
+                </div>
+                <input type="date" placeholder="Date from">
+            </div>
+             <div class="search-box">
+                <div class="search-head">
+                    <span><iconify-icon icon="solar:user-linear" class="icon"></iconify-icon></span>
+                    Guests
+                </div>
+                <input type="number" placeholder="0">
+            </div>
+             <button class="check-btn">CHECK AVAILABILITY</button>
+        </div>
+    </div> 
+    
+
+    <section class="about-sect">
+        <div data-aos="fade-right" data-aos-offset="300"data-aos-easing="ease-in-sine">
+            <div class="about-info">
+                <iconify-icon icon="radix-icons:drag-handle-dots-1" flip="vertical" class="iconn"></iconify-icon>
+                <p class="wlcom">WELCOME TO HOTEL MIRAMAR SG</p>
+                <p class="headd">Finest Luxury Hotels & Resort</p>
+                <p class="detail">Hotel Miramar SG is a distinctive collection of hotels chosen for their rich heritage, enviable central locations and personalised guest experience. Each is unique in the story it tells, a story revealed through its history, architecture and character. This is the Rominal legacy: inimitable hotels in coveted
+                    locations, run by talented people dedicated to the art of hospitality.</p>
+            </div>
+        </div>
+        <div data-aos="fade-left">
+            <div class="about-img">
+                <img src="../assets/The World's First Ever Swim-Up Rondoval Suites.jpg" alt="" class="img3">
+                <img src="../assets/interior1.jpg" alt="" class="img1">
+                <img src="../assets/interior1.jpg" alt="" class="img1">
+            </div>
+        </div> 
+    </section> 
+
+    <section class="features-sect">
+        <div class="head">
+            <iconify-icon icon="radix-icons:drag-handle-dots-1" flip="vertical" class="iconn"></iconify-icon> 
+            <p class="wlcom">ENJOY LUXURY PRIVILEGES</p>
+            <p class="headd">Featured Specials</p>
+       </div>
+        <div class="imgs">
+
+            <div class="feature-img img1">
+                <div class="overlay">
+                    <p class="offer">UP TO 30% OFF</p>
+                    <p class="offerm">Kick Off Summer in SG</p>
+                </div>
+            </div>
+            <div class="feature-img img2">
+                <div class="overlay">
+                    <p class="offer">ONLY THIS WEEK</p>
+                    <p class="offerm">Free Breakfast for 3 days Package</p>
+                </div>
+            </div>
+            <div class="feature-img img3">
+                <div class="overlay">
+                    <p class="offer">MEMBERSHIP</p>
+                    <p class="offerm">3 Months Honeymoon Special Package</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="facilities-sect">
+         <div class="head">
+            <iconify-icon icon="radix-icons:drag-handle-dots-1" flip="vertical" class="iconn"></iconify-icon> 
+            <p class="wlcom">SERVICES</p>
+            <p class="headd">Facilities & Services</p>
+         </div>
+
+         <div class="facilities-display">
+
+             <div class="fac-features">
+                 <div class="icon-div active">
+                    <iconify-icon icon="game-icons:commercial-airplane" class="icon"></iconify-icon>
+                 </div>
+                <p class="heade">Pick Up & Drop</p>
+                <p>We’ll pick you up from airport while you comfy on your ride.</p>
+             </div>
+
+             <div class="fac-features">
+                <div class="icon-div">
+                   <iconify-icon icon="clarity:car-line" class="icon"></iconify-icon>
+                </div>
+                <p class="heade">Parking Space</p>
+                <p>We’ll pick you up from airport while you comfy on your ride.</p>
+             </div>
+
+             <div class="fac-features">
+                <div class="icon-div">
+                  <iconify-icon icon="ph:wine-light" class="icon"></iconify-icon>
+                </div>  
+                <p class="heade">Welcome Drink</p>
+                <p>We’ll pick you up from airport while you comfy on your ride.</p>
+             </div>    
+
+             <div class="fac-features">
+                <div class="icon-div">
+                  <iconify-icon  icon="fa:bathtub" flip="horizontal" class="icon"></iconify-icon>
+                </div>  
+                <p class="heade">Hot & Cold Water</p>
+                <p>We’ll pick you up from airport while you comfy on your ride.</p>
+             </div>  
+
+             <div class="fac-features">
+                <div class="icon-div">
+                  <iconify-icon icon="game-icons:hanger" class="icon"></iconify-icon>
+                </div>  
+                <p class="heade">Full Board</p>
+                <p>We’ll pick you up from airport while you comfy on your ride.</p>
+             </div>    
+
+             <div class="fac-features">
+                <div class="icon-div">
+                  <iconify-icon icon="icon-park:swimming-pool" class="icon"></iconify-icon>
+                </div>  
+                <p class="heade">Swimming Pool</p>
+                <p>We’ll pick you up from airport while you comfy on your ride.</p>
+             </div>    
+             
+         </div>
+    </section>
+
+    <section class="rooms-sect">
+        <div class="head">
+            <iconify-icon icon="radix-icons:drag-handle-dots-1" flip="vertical" class="iconn"></iconify-icon> 
+            <p class="wlcom">DISCOVER</p>
+            <p class="headd">Rooms & Suites</p>
+         </div>
+
+         <div class="room-div">
+             <div class="room-pic">
+                 <div class="room">
+                    <div class="forgrnd">
+                        <div class="rate">
+                           <iconify-icon icon="ic:round-star-rate" class="star"></iconify-icon>
+                           <iconify-icon icon="ic:round-star-rate" class="star"></iconify-icon>
+                           <iconify-icon icon="ic:round-star-rate" class="star"></iconify-icon>
+                           <iconify-icon icon="ic:round-star-rate" class="star"></iconify-icon>
+                           <iconify-icon icon="ic:round-star-rate" class="star"></iconify-icon>
+                        </div>
+                     </div>
+                 </div>
+                 
+                 
+                  <div class="room-det">
+                    <div>
+                        <p class="toper">Premium Room</p>
+                        <p class="fs-7">40 m2 Balcony Lake view</p>
+                    </div>
+
+                    <div>
+                        <p class="fs-6 top">from</p>
+                        <p class="amount">$150 <span class="fs-6">/night</span></p>
+                    </div>
+                 </div>
+             </div>  
+             
+             
+             <div class="room-pic">
+                <div class="room room2">
+                <div class="forgrnd">
+                    <div class="rate">
+                        <iconify-icon icon="ic:round-star-rate" class="star"></iconify-icon>
+                        <iconify-icon icon="ic:round-star-rate" class="star"></iconify-icon>
+                        <iconify-icon icon="ic:round-star-rate" class="star"></iconify-icon>
+                        <iconify-icon icon="ic:round-star-rate" class="star"></iconify-icon>
+                        <iconify-icon icon="ic:round-star-rate" class="star"></iconify-icon>
+                    </div>
+             </div>   
+                </div>
+                 <div class="room-det">
+                    <div class="room-det-det">
+                        <p class=" toper">Budget Room</p>
+                        <div class="fs-7">20 m2 Balcony Lake view</div>
+                    </div>
+
+                    <div>
+                        <p class="fs-6 top">from</p>
+                        <p class="amount">$65<span class="fs-6">/night</span></p>
+                    </div>
+                 </div>
+             </div>
+         </div>
+    </section>
+
+    <section class="footer-sect">
+          <div class="footnote">
+              <p class="foot-head">QUICK LINKS</p>
+              <p>Home</p>
+              <p>Terms and Conditions</p>
+              <p>FAQ</p>
+          </div>
+          <div class="footnote">
+             <p class="foot-head">ADDRESS</p>
+             <p>100 Orchard St,
+                New York, NY 10002,
+                USA</p>
+          </div>
+          <div class="footnote">
+               <p class="foot-head">RESERVATONS</p>
+               <p>(+844) 1800 3355</p>
+               <p>support@hotel.com</p>
+          </div>
+          <div class="footnote">
+              <p class="foot-head">FOLLOW US</p>
+              <div class="social">
+                <p><iconify-icon icon="mingcute:facebook-fill"></iconify-icon></p>
+                <p><iconify-icon icon="mdi:twitter"></iconify-icon></p>
+                <p><iconify-icon icon="mdi:youtube"></iconify-icon></p>
+              </div>
+              
+              
+          </div>
+    </section>
+<script src="main.js" type="module"></script>   
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>  
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+<script> AOS.init() </script> 
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> 
+</body>
+</html>
