@@ -1,5 +1,17 @@
-from flask import Blueprint, render_template
-
+from flask import Blueprint, request, render_template, redirect, url_for
+from flask_mail import Message
+#  I want to t use it here but keep getting import errors
+ # error like this. all tried importing create_app() but got a circular import error. 
+ # 
+ # Traceback (most recent call last):                                  \Miramar-Hotel> 
+#   File "C:\Users\DELL\Desktop\programming\sem4-eproject-Hotel-Miriamar-SG\Miramar-Hotel\main.py", line 5, in <module>
+#     app = create_app()
+#           ^^^^^^^^^^^^
+#   File "C:\Users\DELL\Desktop\programming\sem4-eproject-Hotel-Miriamar-SG\Miramar-Hotel\app\__init__.py", line 22, in create_app        
+#     from .views.admin import admin
+#   File "C:\Users\DELL\Desktop\programming\sem4-eproject-Hotel-Miriamar-SG\Miramar-Hotel\app\views\admin.py", line 3, in <module>        
+#     from app import mail
+# ImportError: cannot import name 'mail' from 'app' (C:\Users\DELL\Desktop\programming\sem4-eproject-Hotel-Miriamar-SG\Miramar-Hotel\app\__init__.py)
 admin = Blueprint("admin", __name__) 
 
 @admin.route("/")
@@ -15,8 +27,19 @@ def contact_page():
 def profile_page():
     return render_template("admin/app-profile.html", page="Profile")
 
-@admin.route("email-compose")
-def email_compose():
+@admin.route("email-compose", methods=['POST'])
+def email_compose(): 
+    #this is the page that i want to send an email
+    if request.method == 'POST':
+        recipient = request.form.get('recipient')
+        subject = request.form.get('subject')
+        message_body = request.form.get('message_body')
+
+        message = Message(subject, recipients=[recipient])
+        message.body = message_body
+
+        mail.send(message)
+        return redirect(url_for('admin.email_compose'))  # Redirect back to the email compose page
     return render_template("admin/email-compose.html", page="Email Compose")
 
 

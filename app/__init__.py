@@ -1,12 +1,12 @@
-from flask import Flask, request, render_template
+from flask import Flask, render_template
 from .config.variables import SECRET_KEY, EMAIL_PASSWORD 
-from flask_mail import Mail, Message 
 import os 
+from flask_mail import Mail
 
 
 def create_app():
-  app = Flask(__name__) 
-  mail = Mail(app)
+  app = Flask(__name__)
+  # mail = Mail(app) then you have to initialize the class
 
   # CONFIGS
   app.config["SECRET_KEY"] = SECRET_KEY
@@ -19,9 +19,7 @@ def create_app():
   app.config['MAIL_USE_SSL'] = True
   app.config['MAIL_USERNAME'] = 'testingweb3phoenix@gmail.com'
   
-
-
-  
+ 
   # BLUEPRINT
   from .views.user import user
   from .views.admin import admin

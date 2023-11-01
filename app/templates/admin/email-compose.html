@@ -28,12 +28,16 @@
 								
 							</div>
 							<div class="compose-content">
-								<form action="#">
+								<form method="POST" action="{{ url_for('admin.email_compose') }}">
+									{{ form.hidden_tag() }}
 									<div class="mb-3">
-										<input type="text" class="form-control bg-transparent" placeholder=" To:">
+										<input name="recipient" type="text" 
+										class="form-control bg-transparent" placeholder=" To:">
 									</div>
 									<div class="mb-3">
-										<input type="text" class="form-control bg-transparent" placeholder=" Subject:">
+										<input type="text" 
+										name="subject"
+										class="form-control bg-transparent" placeholder=" Subject:">
 									</div>
 									<div class="mb-3">
 										<textarea id="email-compose-editor" class="textarea_editor form-control bg-transparent" rows="15" placeholder="Enter text ..."></textarea>
