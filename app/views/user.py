@@ -7,7 +7,7 @@ user = Blueprint("user", __name__)
 @user.route("/")
 @user.route("/home")
 def landing_page():
-    return render_template("user/landing.html")
+    return render_template("user/index.html")
 
 @user.route("/register")
 def register_page():
