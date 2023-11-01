@@ -1,15 +1,27 @@
-from flask import Flask, render_template
-from .config.variables import SECRET_KEY
-import os
+from flask import Flask, request, render_template
+from .config.variables import SECRET_KEY, EMAIL_PASSWORD 
+from flask_mail import Mail, Message 
+import os 
+
 
 def create_app():
   app = Flask(__name__) 
-  
+  mail = Mail(app)
 
   # CONFIGS
   app.config["SECRET_KEY"] = SECRET_KEY
+  app.config['MAIL_PASSWORD'] = EMAIL_PASSWORD
+  
+  # mail configs 
+  app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+  app.config['MAIL_PORT'] = 465
+  app.config['MAIL_USE_TLS'] = False
+  app.config['MAIL_USE_SSL'] = True
+  app.config['MAIL_USERNAME'] = 'testingweb3phoenix@gmail.com'
+  
 
 
+  
   # BLUEPRINT
   from .views.user import user
   from .views.admin import admin
