@@ -789,6 +789,69 @@ progress {
 .g-0,
 .gx-0 {
   --bs-gutter-x: 0; }
+  .wrap
+  {
+      border: 1px solid;
+      margin: 25px;
+  }
+
+  .box
+  {
+      border: none;
+      outline: none;
+      padding: 10px;
+  }
+      .box div
+      {
+          display: inline-block;
+          margin-right: 15px;
+          height: auto;
+      }
+      .box .input
+      {
+          display: none;
+          outline: none;
+
+      }
+      .dropdown_options {
+        position: absolute;
+        bottom: 2rem;
+      }
+      /* style for booking status */
+      .default{
+        background-color: #ffc107;
+        border-radius: 30px;
+        padding: 3px 5px;
+        color: white;
+        text-wrap: nowrap;
+      }
+      .approved{
+        background-color: #28a745;
+        border-radius: 30px;
+        padding: 3px 5px;
+        text-wrap: nowrap;
+        color: white;
+      }
+      .cancelled{
+        background-color: #dc3545;
+        border-radius: 30px;
+        padding: 3px 5px;
+        color: white;
+        text-wrap: nowrap;
+      }
+
+      /* styles for contenteditable in customers page */
+
+[contenteditable]:hover {
+  background: #fafafa;
+  outline: 2px solid #eee;
+}
+
+[contenteditable]:focus {
+  background: #efefef;
+  outline: none;
+}
+
 
 .g-0,
 .gy-0 {
@@ -18335,7 +18398,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
       color: var(--primary); }
 
 .email-right-box {
-  padding-left: 15rem;
+  padding-left: 1rem;
   padding-right: 1rem; }
   @media (min-width: 576px) and (max-width: 991.98px) {
     .email-right-box {

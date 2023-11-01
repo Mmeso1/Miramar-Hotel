@@ -15,13 +15,10 @@ def contact_page():
 def profile_page():
     return render_template("admin/app-profile.html", page="Profile")
 
-@admin.route("/message")
-def message_page():
-    return render_template("admin/message.html", page="Message")
+@admin.route("email-compose")
+def email_compose():
+    return render_template("admin/email-compose.html", page="Email Compose")
 
-@admin.route("/calendar")
-def calendar_page():
-    return render_template("admin/app-calender.html", page="Calendar")
 
 @admin.route("/gallery")
 def price_page():

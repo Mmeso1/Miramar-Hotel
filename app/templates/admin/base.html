@@ -682,7 +682,6 @@
 							</li>	
 							
 							
-
 							
 							<li class="nav-item dropdown  header-profile">
 								<a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
@@ -734,9 +733,7 @@
 					
 					<li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fas fa-envelope"></i>Email</a>
 						<ul aria-expanded="false">
-							<li><a href="email-compose.html">Compose</a></li>
-							<li><a href="email-inbox.html">Inbox</a></li>
-							<li><a href="email-read.html">Read</a></li>
+							<li><a href="{{url_for('admin.email_compose')}}">Compose</a></li>
 						</ul>
 					</li>
 
@@ -856,6 +853,7 @@
 	<script src="{{ url_for('static', filename='admin/js/dlabnav-init.js') }}"></script>
 	<script src="{{ url_for('static', filename='admin/js/demo.js') }}"></script>
     <script src="{{ url_for('static', filename='admin/js/styleSwitcher.js') }}"></script>
+	{% block customJs %}{% endblock customJs %}
 	
 	
 </body>

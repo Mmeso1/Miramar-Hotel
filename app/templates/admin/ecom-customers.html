@@ -18,12 +18,11 @@
 												<label class="form-check-label" for="checkAll"></label>
 											</div>
 										</th>
-										<th>Name</th>
+										<th>Username</th>
 										<th>Email</th>
-										<th>Phone</th>
-										<th class=" ps-5" style="min-width: 200px;">Billing Address
+										<th>Password</th>
+										<th class=" ps-5" style="min-width: 200px;">Rooms booked by user
 										</th>
-										<th>Joined</th>
 										<th></th>
 									</tr>
 								</thead>
@@ -43,19 +42,20 @@
 														</div>
 													</div>
 													<div class="media-body">
-														<h5 class="mb-0 fs--1">Ricky Antony</h5>
+														<h5 class="mb-0 fs--1 myContent" 
+														id="myContent0">Ricky Antony</h5>
 													</div>
 												</div>
 											</a>
 										</td>
-										<td class="py-2"><a href="mailto:ricky@example.com">info@example.com</a></td>
-										<td class="py-2"> <a href="tel:2012001851">(201) 200-1851</a></td>
-										<td class="py-2 ps-5">2392 Main Avenue, Penasauka</td>
-										<td class="py-2">30/03/2018</td>
+										<td class="py-2"><a class="myContent" href="mailto:ricky@example.com" id="myContent1">info@example.com</a></td>
+										<td class="py-2"> <a class="myContent" href="tel:2012001851" id="myContent2">(201) 200-1851</a></td>
+										<td class="py-2 ps-5 myContent" id="myContent3">Premium beach side suite</td>
+
 										<td class="py-2 text-end">
 											<div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
 												<div class="dropdown-menu dropdown-menu-end border py-0">
-													<div class="py-2"><a class="dropdown-item" href="#!">Edit</a><a class="dropdown-item text-danger" href="#!">Delete</a></div>
+													<div class="py-2"><a class="dropdown-item edit-item" href="#!" onClick="makeEditable(this)">Edit</a><a class="dropdown-item save-item" href="#!">Save</a><a class="dropdown-item text-danger delete-item" href="#!">Delete</a></div>
 												</div>
 											</div>
 										</td>
@@ -74,21 +74,22 @@
 														<img class="rounded-circle img-fluid" src="images/avatar/1.png" alt="" width="30">
 													</div>
 													<div class="media-body">
-														<h5 class="mb-0 fs--1">Emma Watson</h5>
+														<h5 class="mb-0 fs--1 myContent">Emma Watson</h5>
 													</div>
 												</div>
 											</a>
 										</td>
-										<td class="py-2"><a href="mailto:emma@example.com">info@example.com</a>
+										<td class="py-2"><a href="mailto:emma@example.com" class="myContent">info@example.com</a>
 										</td>
-										<td class="py-2"> <a href="tel:2122288403">(212) 228-8403</a></td>
-										<td class="py-2 ps-5">2289 5th Avenue, New York
+										<td class="py-2"> <a href="tel:2122288403"  class="myContent">(212) 228-8403</a></td>
+										<td class="py-2 ps-5 myContent">2289 5th Avenue, New York
 										</td>
-										<td class="py-2">11/07/2017</td>
 										<td class="py-2 text-end">
 											<div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
 												<div class="dropdown-menu dropdown-menu-end border py-0">
-													<div class="py-2"><a class="dropdown-item" href="#!">Edit</a><a class="dropdown-item text-danger" href="#!">Delete</a></div>
+													<div class="py-2">
+														<a class="dropdown-item edit-item" href="#!" onClick="makeEditable(this)">Edit</a><a class="dropdown-item save-item" href="#!">Save</a>
+														<a class="dropdown-item text-danger delete-item" href="#!">Delete</a></div>
 												</div>
 											</div>
 										</td>
@@ -108,21 +109,20 @@
 														</div>
 													</div>
 													<div class="media-body">
-														<h5 class="mb-0 fs--1">Rowen Atkinson</h5>
+														<h5 class="mb-0 fs--1 myContent">Rowen Atkinson</h5>
 													</div>
 												</div>
 											</a>
 										</td>
-										<td class="py-2"><a href="mailto:rown@example.com">info@example.com</a>
+										<td class="py-2"><a href="mailto:rown@example.com" class="myContent">info@example.com</a>
 										</td>
-										<td class="py-2"> <a href="tel:2012001851">(201) 200-1851</a></td>
-										<td class="py-2 ps-5">112 Bostwick Avenue, Jersey City
+										<td class="py-2"> <a href="tel:2012001851" class="myContent">(201) 200-1851</a></td>
+										<td class="py-2 ps-5 myContent">112 Bostwick Avenue, Jersey City
 										</td>
-										<td class="py-2">05/04/2016</td>
 										<td class="py-2 text-end">
 											<div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
 												<div class="dropdown-menu dropdown-menu-end border py-0">
-													<div class="py-2"><a class="dropdown-item" href="#!">Edit</a><a class="dropdown-item text-danger" href="#!">Delete</a></div>
+													<div class="py-2"><a class="dropdown-item edit-item" href="#!" onClick="makeEditable(this)">Edit</a><a class="dropdown-item save-item" href="#!">Save</a><a class="dropdown-item text-danger delete-item" href="#!">Delete</a></div>
 												</div>
 											</div>
 										</td>
@@ -141,23 +141,23 @@
 														<img class="rounded-circle img-fluid" src="images/avatar/1.png" alt="" width="30">
 													</div>
 													<div class="media-body">
-														<h5 class="mb-0 fs--1">Antony Hopkins</h5>
+														<h5 class="mb-0 fs--1 myContent">Antony Hopkins</h5>
 													</div>
 												</div>
 											</a>
 										</td>
-										<td class="py-2"><a href="mailto:antony@example.com">info@example.com</a></td>
-										<td class="py-2"> <a href="tel:9013243127">(901) 324-3127</a></td>
-										<td class="py-2 ps-5">3448 Ile De France St #242, </td>
-										<td class="py-2">05/04/2018</td>
+										<td class="py-2"><a href="mailto:antony@example.com" class="myContent">info@example.com</a></td>
+										<td class="py-2"> <a href="#" class="myContent">(901) 324-3127</a></td>
+										<td class="py-2 ps-5 myContent">3448 Ile De France St #242, </td>
 										<td class="py-2 text-end">
 											<div class="dropdown"><button class="btn btn-primary tp-btn-light sharp" type="button" data-bs-toggle="dropdown"><span class="fs--1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></span></button>
 												<div class="dropdown-menu dropdown-menu-end border py-0">
-													<div class="py-2"><a class="dropdown-item" href="#!">Edit</a><a class="dropdown-item text-danger" href="#!">Delete</a></div>
+													<div class="py-2"><a class="dropdown-item edit-item" href="#!" onClick="makeEditable(this)">Edit</a><a class="dropdown-item save-item" href="#!">Save</a><a class="dropdown-item text-danger delete-item" href="#!">Delete</a></div>
 												</div>
 											</div>
 										</td>
 									</tr>
+									<!--
 									<tr class="btn-reveal-trigger">
 										<td class="py-2">
 											<div class="form-check custom-checkbox mx-2">
@@ -165,7 +165,7 @@
 												<label class="form-check-label" for="checkbox5"></label>
 											</div>
 										</td>
-										<td class="py-3">
+										 <td class="py-3">
 											<a href="#">
 												<div class="media d-flex align-items-center">
 													<div class="avatar avatar-xl me-2">
@@ -544,6 +544,7 @@
 											</div>
 										</td>
 									</tr>
+									-->
 								</tbody>
 							</table>
 						</div>
@@ -553,4 +554,5 @@
 		</div>
 	</div>
 </div>
+{% block customJs %}<script src="{{ url_for('static', filename='admin/js/edit-customers-info.js') }}"></script>{% endblock customJs %}
 {% endblock %}
