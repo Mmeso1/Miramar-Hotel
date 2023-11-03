@@ -33,14 +33,14 @@ def create_app():
   def page_not_found(error):
     print("404 ERROR:", str(error))
     return render_template("error_404.html")
-  
+    
 
-  # ERROR 500
+    # ERROR 500
   @app.errorhandler(Exception)
   def server_error(error):
     print("500 ERROR:", str(error))
     return render_template("error_500.html")
-  
+    
 
   db.init_app(app)
   with app.app_context():

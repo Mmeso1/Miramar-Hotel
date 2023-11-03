@@ -605,7 +605,9 @@ progress {
 
 .img-fluid {
   max-width: 100%;
-  height: auto; }
+  height: 28rem;
+  object-fit: cover;  
+}
 
 .img-thumbnail {
   padding: 0.25rem;
@@ -789,6 +791,69 @@ progress {
 .g-0,
 .gx-0 {
   --bs-gutter-x: 0; }
+  .wrap
+  {
+      border: 1px solid;
+      margin: 25px;
+  }
+
+  .box
+  {
+      border: none;
+      outline: none;
+      padding: 10px;
+  }
+      .box div
+      {
+          display: inline-block;
+          margin-right: 15px;
+          height: auto;
+      }
+      .box .input
+      {
+          display: none;
+          outline: none;
+
+      }
+      .dropdown_options {
+        position: absolute;
+        bottom: 2rem;
+      }
+      /* style for booking status */
+      .default{
+        background-color: #ffc107;
+        border-radius: 30px;
+        padding: 3px 5px;
+        color: white;
+        text-wrap: nowrap;
+      }
+      .approved{
+        background-color: #28a745;
+        border-radius: 30px;
+        padding: 3px 5px;
+        text-wrap: nowrap;
+        color: white;
+      }
+      .cancelled{
+        background-color: #dc3545;
+        border-radius: 30px;
+        padding: 3px 5px;
+        color: white;
+        text-wrap: nowrap;
+      }
+
+      /* styles for contenteditable in customers page */
+
+[contenteditable]:hover {
+  background: #fafafa;
+  outline: 2px solid #eee;
+}
+
+[contenteditable]:focus {
+  background: #efefef;
+  outline: none;
+}
+
 
 .g-0,
 .gy-0 {
@@ -18335,7 +18400,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
       color: var(--primary); }
 
 .email-right-box {
-  padding-left: 15rem;
+  padding-left: 1rem;
   padding-right: 1rem; }
   @media (min-width: 576px) and (max-width: 991.98px) {
     .email-right-box {
@@ -25376,6 +25441,16 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 .ck.ck-editor__editable_inline > :first-child {
   height: 150px; }
 
+.mydefault-btn-color{
+  background-color: #8d72c2;
+  color: #ffffff;
+  font-size: 16px;
+}
+.mydefault-btn-color:hover{
+  color:  #8d72c2;
+  background-color: #fff;
+  font-size: 16px;
+}
 .textarea_editor {
   height: 120px; }
 
@@ -25993,13 +26068,43 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
     border-left: 0rem solid #c8c8c8;
     border-right: 0rem solid #c8c8c8; }
 
+
+    /* chidube's styles */
+    
+    /* padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #24292e;
+    vertical-align: middle;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    outline: none;
+    box-shadow: rgba(225, 228, 232, 0.2) 0px 1px 0px 0px inset; */
+
+    
+    .new-arrival-content input {
+      background-color: transparent;
+      border: none;
+      outline: none;
+    }
+
+    .new-arrival-content input :focus{
+      border-color: #0366d6;
+      outline: none;
+      box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  }
+
+
 .new-arrival-product .new-arrivals-img-contnent {
   overflow: hidden; }
   .new-arrival-product .new-arrivals-img-contnent img {
     width: 100%;
-    -webkit-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    transition: all 0.5s; }
+    -webkit-transition: all 3s;
+    -ms-transition: all 3s;
+    transition: all 3s; }
 .new-arrival-product:hover .new-arrivals-img-contnent img {
   transform: scale(1.5) translateY(12%);
   -moz-transform: scale(1.5) translateY(12%);
@@ -26014,12 +26119,11 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 .new-arrival-content .item {
   font-size: 0.75rem;
   color: #6e6e6e; }
-.new-arrival-content h4, .new-arrival-content .h4 {
+ .new-arrival-content .room_name {
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.625rem; }
-  .new-arrival-content h4 a, .new-arrival-content .h4 a {
-    color: #000; }
+  margin-bottom: 0.625rem;
+  color: #000; }
 .new-arrival-content .price {
   font-weight: 600;
   color: var(--primary);
