@@ -39,60 +39,28 @@
 
 </head>
 <body>
-    <!-- <div class="nav_page_header d-flex align-items-center fsz-sm-md">
-        <a>Reservation number: <span style="color: #F9E000;">+1253653875</span></a>
-        <a>24 Orchard Road, Singapore 238825</a>
-        <a href="{{ url_for('user.rooms_page') }}" style="color: #F9E000; font-size: small; text-decoration: none;">BOOK YOUR STAY</a>
-    </div>
-    <nav class="navbar navbar-expand-lg sticky-top">
-        <div class="container-fluid mx-auto">
-            <a class="navbar-brand" href="{{ url_for('user.landing_page') }}">
-                <img src="{{ url_for('static', filename='user/Hotel_Black.png') }}" alt="Logo" width="120">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse menu-md" id="navbarNav">
-                <ul class="navbar-nav align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('user.landing_page') }}">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('user.rooms_page') }}">ROOMS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('user.nearbyplaces') }}">NEARBY PLACES</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('user.contact_us') }}">CONTACT US</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-user"></i> 
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
-
     <header>
       <ul>
         <li>Reservation number: <span id="color">(65) 6733 0222</span></li>
         <li>401 Havelock Road, Singapore 169631</li>
-        <a href=""><li class="btn">BOOK YOUR STAY</li></a>
+        <a href="{{ url_for('user.rooms_page') }}"><li class="btn">BOOK YOUR STAY</li></a>
       </ul>
  </header>
  <nav class="nav1">
      <ul class="gen-ul">
         <div class="brand-li">
-            <a href=""><li><img src="../../static/user/Hotel_Black.png" alt="logo" class="logo"></li></a>
+            <a href="{{ url_for('static', filename='user/Hotel_Black.png') }}"><li><img src="../../static/user/Hotel_Black.png" alt="logo" class="logo"></li></a>
         </div>
         <div class="other-li">
-            <a href=""><li class="menu active">HOME</li></a>
-            <a href=""><li  class="menu">ROOMS</li></a>
-            <a href=""><li  class="menu">NEARBY PLACES</li></a>
-            <a href=""><li  class="menu">CONTACT</li></a>
+            <a href="{{ url_for('user.landing_page') }}"><li class="menu active">HOME</li></a>
+            <a href="{{ url_for('user.rooms_page') }}"><li  class="menu">ROOMS</li></a>
+            <a href="{{ url_for('user.nearbyplaces') }}"><li  class="menu">NEARBY PLACES</li></a>
+            <a href="{{ url_for('user.contact_us') }}"><li  class="menu">CONTACT</li></a>
+            {% if "user_token" in session %}
+            <a class="menu" href="{{ url_for('user.profile_page') }}"><i class="fa fa-user"></i></a>
+            {% else %}
+            <a href="{{ url_for('user.register_page')}}"><li  class="menu">SIGN IN</li></a>
+            {% endif %}
         </div> 
      </ul>
  </nav>
@@ -100,7 +68,7 @@
  <div class="other-li-side">
     <nav class="navbar bg-body-tertiary fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="../../static/user/Hotel_Black.png" alt="logo" class="logo"></a>
+          <a class="navbar-brand" href="{{ url_for('user.landing_page') }}"><img src="../../static/user/Hotel_Black.png" alt="logo" class="logo"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <iconify-icon icon="material-symbols-light:menu" class="menu"></iconify-icon>
           </button>
@@ -112,18 +80,20 @@
             <div class="offcanvas-body nav-body">
               <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link nav-li" aria-current="page" href="#">Home</a>
+                  <a class="nav-link nav-li" aria-current="page" href="{{ url_for('user.landing_page') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Rooms</a>
+                  <a class="nav-link" href="{{ url_for('user.rooms_page') }}">Rooms</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Nearby Places</a>
+                  <a class="nav-link" href="{{ url_for('user.nearbyplaces') }}">Nearby Places</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Contact</a>
+                  <a class="nav-link" href="{{ url_for('user.contact_us') }}">Contact</a>
                 </li>
-                
+                <li>
+                  <a class="nav-link" href=""><i class="fa fa-user"></i></a>
+                </li>
               </ul>
             </div>
           </div>
@@ -140,18 +110,17 @@
         <div class="footnote">
             <p class="foot-head">QUICK LINKS</p>
             <p>Home</p>
-            <p>Terms and Conditions</p>
-            <p>FAQ</p>
+            <p>Nearby Places</p>
+            <p>Rooms</p>
         </div>
         <div class="footnote">
            <p class="foot-head">ADDRESS</p>
-           <p>100 Orchard St,
-              New York, NY 10002,
-              USA</p>
+           <p>401 Havelock Road,
+            Singapore 169631</p>
         </div>
         <div class="footnote">
              <p class="foot-head">RESERVATONS</p>
-             <p>(+844) 1800 3355</p>
+             <p>(65) 6733 0222</p>
              <p>support@hotel.com</p>
         </div>
         <div class="footnote">

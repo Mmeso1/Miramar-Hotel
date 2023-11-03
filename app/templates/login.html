@@ -1,8 +1,11 @@
 {% extends "auth_base.html" %}
 
 {% block title %}
-Login -Miraiamar
+Login -Miramar
 {% endblock title %}
+
+<!-- For alerts -->
+{% include "alerts.html" %}
 
 {% block content %}
 <div class="container justify-content-center d-flex my-5 pt-5">
@@ -17,7 +20,7 @@ Login -Miraiamar
                     </div>
                 
                     <h2 class="mb-4 mt-3 auth_font text-center">Login</h2>
-                    <form class="lgr">
+                    <form class="lgr" action="{{ url_for('auth.login') }}"  method="post">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
                             <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
@@ -27,10 +30,10 @@ Login -Miraiamar
                 
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" class="form-control" name="password" id="exampleInputPassword1">
                         </div>
                 
-                        <a href="" style="color: #808080;">Forgot password?</a>
+                        <a href="{{ url_for('auth.request_password_reset') }}" style="color: #808080;">Forgot password?</a>
                         <div class="text-center button mt-3">
                             <input type="submit" class="form-control" id="submit" name="submit">
                         </div>

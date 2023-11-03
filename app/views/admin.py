@@ -1,9 +1,11 @@
 from flask import Blueprint, render_template
+from app.views.decorators import admin_required
 
 admin = Blueprint("admin", __name__) 
 
 @admin.route("/")
 @admin.route("/home")
+@admin_required
 def home_page():
     return render_template("admin/index.html", page="Dashboard")
 
