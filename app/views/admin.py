@@ -1,22 +1,22 @@
-from flask import Blueprint, request, render_template, redirect, url_for
-from flask_mail import Message
-#  I want to t use it here but keep getting import errors
- # error like this. all tried importing create_app() but got a circular import error. 
- # 
- # Traceback (most recent call last):                                  \Miramar-Hotel> 
-#   File "C:\Users\DELL\Desktop\programming\sem4-eproject-Hotel-Miriamar-SG\Miramar-Hotel\main.py", line 5, in <module>
-#     app = create_app()
-#           ^^^^^^^^^^^^
-#   File "C:\Users\DELL\Desktop\programming\sem4-eproject-Hotel-Miriamar-SG\Miramar-Hotel\app\__init__.py", line 22, in create_app        
-#     from .views.admin import admin
-#   File "C:\Users\DELL\Desktop\programming\sem4-eproject-Hotel-Miriamar-SG\Miramar-Hotel\app\views\admin.py", line 3, in <module>        
-#     from app import mail
-# ImportError: cannot import name 'mail' from 'app' (C:\Users\DELL\Desktop\programming\sem4-eproject-Hotel-Miriamar-SG\Miramar-Hotel\app\__init__.py)
+from flask import Blueprint, request, render_template, redirect, url_for, flash 
+from app.config.variables import EMAIL_PASSWORD
+from email_validator import validate_email, EmailNotValidError
+import smtplib
+from email.mime.text import MIMEText
+
+def validate_guest_email( email_address):
+    try:
+        valid = validate_email(email_address)
+        return True
+    except EmailNotValidError as e:
+        return False
+        
 admin = Blueprint("admin", __name__) 
 
 @admin.route("/")
 @admin.route("/home")
-def home_page():
+def home_page(): 
+    flash('Welcome', 'message')
     return render_template("admin/index.html", page="Dashboard")
 
 @admin.route("/contact")
@@ -27,21 +27,49 @@ def contact_page():
 def profile_page():
     return render_template("admin/app-profile.html", page="Profile")
 
-@admin.route("email-compose", methods=['POST'])
-def email_compose(): 
-    #this is the page that i want to send an email
+
+@admin.route("/email-compose", methods=['POST', 'GET'])
+def email_compose():
+    error = None  # Initialize the error variable
     if request.method == 'POST':
         recipient = request.form.get('recipient')
         subject = request.form.get('subject')
         message_body = request.form.get('message_body')
 
-        message = Message(subject, recipients=[recipient])
-        message.body = message_body
+        
+        # Check for empty fields
+        if not recipient or not subject or not message_body:
+            error = "All fields are required*"
+            return render_template("admin/email-compose.html", page="Email Compose", error=error, recipient=recipient, subject=subject, message_body=message_body) 
 
-        mail.send(message)
-        return redirect(url_for('admin.email_compose'))  # Redirect back to the email compose page
-    return render_template("admin/email-compose.html", page="Email Compose")
+        
+        # Check for invalid email format
+        if not error and not validate_guest_email(recipient):
+            error = "Invalid email format*"
+            return render_template("admin/email-compose.html", page="Email Compose", error=error, recipient=recipient, subject=subject, message_body=message_body) 
 
+        
+        if not error:
+            fromx = 'testingweb3phoenix@gmail.com'
+            to  = recipient
+            msg = MIMEText(message_body)
+            msg['Subject'] = subject
+            msg['From'] = fromx
+            msg['To'] = to
+
+            try:
+                # Creating connection using context manager
+                with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server: 
+                    smtp_server.login("testingweb3phoenix@gmail.com", EMAIL_PASSWORD)
+                    smtp_server.sendmail(fromx, to, msg.as_string())
+                    success_sent = 'Email sent successfully!, Google might ome times sort this mails to spam, kindly check that too'
+                    return render_template("admin/email-compose.html", page="Email Compose", success_sent=success_sent)
+            except Exception as e:
+                error = f"An error occurred while sending the email: {str(e)}"
+    
+    return render_template("admin/email-compose.html", page="Email Compose", error=error)
+
+        
 
 @admin.route("/gallery")
 def price_page():

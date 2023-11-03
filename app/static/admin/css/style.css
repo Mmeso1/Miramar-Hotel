@@ -605,7 +605,9 @@ progress {
 
 .img-fluid {
   max-width: 100%;
-  height: auto; }
+  height: 28rem;
+  object-fit: cover;  
+}
 
 .img-thumbnail {
   padding: 0.25rem;
@@ -25439,6 +25441,16 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 .ck.ck-editor__editable_inline > :first-child {
   height: 150px; }
 
+.mydefault-btn-color{
+  background-color: #8d72c2;
+  color: #ffffff;
+  font-size: 16px;
+}
+.mydefault-btn-color:hover{
+  color:  #8d72c2;
+  background-color: #fff;
+  font-size: 16px;
+}
 .textarea_editor {
   height: 120px; }
 
@@ -26056,13 +26068,43 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
     border-left: 0rem solid #c8c8c8;
     border-right: 0rem solid #c8c8c8; }
 
+
+    /* chidube's styles */
+    
+    /* padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #24292e;
+    vertical-align: middle;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    outline: none;
+    box-shadow: rgba(225, 228, 232, 0.2) 0px 1px 0px 0px inset; */
+
+    
+    .new-arrival-content input {
+      background-color: transparent;
+      border: none;
+      outline: none;
+    }
+
+    .new-arrival-content input :focus{
+      border-color: #0366d6;
+      outline: none;
+      box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  }
+
+
 .new-arrival-product .new-arrivals-img-contnent {
   overflow: hidden; }
   .new-arrival-product .new-arrivals-img-contnent img {
     width: 100%;
-    -webkit-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    transition: all 0.5s; }
+    -webkit-transition: all 3s;
+    -ms-transition: all 3s;
+    transition: all 3s; }
 .new-arrival-product:hover .new-arrivals-img-contnent img {
   transform: scale(1.5) translateY(12%);
   -moz-transform: scale(1.5) translateY(12%);
@@ -26077,12 +26119,11 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 .new-arrival-content .item {
   font-size: 0.75rem;
   color: #6e6e6e; }
-.new-arrival-content h4, .new-arrival-content .h4 {
+ .new-arrival-content .room_name {
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.625rem; }
-  .new-arrival-content h4 a, .new-arrival-content .h4 a {
-    color: #000; }
+  margin-bottom: 0.625rem;
+  color: #000; }
 .new-arrival-content .price {
   font-weight: 600;
   color: var(--primary);
