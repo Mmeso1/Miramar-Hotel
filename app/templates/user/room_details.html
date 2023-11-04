@@ -1,7 +1,10 @@
 {% extends "user/base.html" %}
 {% block title %}
-Room-details - Miriamar
+Room-details - Miramar
 {% endblock title %}
+
+<!-- For alerts -->
+{% include "alerts.html" %}
 {% block content %}
 <div class="container mt-5">
     <div class="room-deets">
@@ -80,11 +83,11 @@ Room-details - Miriamar
                         <form action="" method="POST">
                             <div class="form-group">
                                 <i class="fa-regular fa-calendar-days"></i>
-                                <input type="text" class="flatpickr-input" id="customDatePicker" placeholder="Arrival Date">
+                                <input type="text" class="flatpickr-input" id="customDatePicker" name="date_of_arrival"  placeholder="Arrival Date">
                             </div>
                             <div class="form-group">
                                 <i class="fa-regular fa-calendar-days"></i>
-                                <input type="text" class="flatpickr-input" id="customDatePicker" placeholder="Departure Date">
+                                <input type="text" class="flatpickr-input" id="customDatePicker" name="date_of_departure" placeholder="Departure Date">
                             </div>
                             
                             <div class="extra-services mt-5">

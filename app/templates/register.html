@@ -1,9 +1,11 @@
 {% extends "auth_base.html" %}
 
 {% block title %}
-Register -Miraiamar
+Register -Miramar
 {% endblock title %}
 
+<!-- For the alerts -->
+{% include "alerts.html" %}
 
 {% block content %}
 <div class="container  justify-content-center d-flex my-5 pt-5">
@@ -18,7 +20,7 @@ Register -Miraiamar
                     </div>
                 
                     <h2 class="mb-4 mt-3 auth_font text-center">Sign Up</h2>
-                    <form class="lgr">
+                    <form class="lgr" action="{{ url_for('auth.register') }}" method="post" >
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
                             <input type="text" class="form-control" id="username" name="username">
@@ -38,9 +40,10 @@ Register -Miraiamar
                 
                         <div class="mb-3">
                             <label for="Password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="Password">
+                            <input type="password" class="form-control" name="password" id="Password">
                         </div>
-                
+
+                        <a href="{{ url_for('auth.login') }}" style="color: #808080;">Already signed in? Login</a>
                         <div class="text-center button mt-3">
                             <input type="submit" class="form-control" id="submit" name="submit">
                         </div>
