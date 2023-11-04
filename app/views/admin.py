@@ -1,5 +1,10 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, flash, request 
 from app.views.decorators import admin_required
+from app.config.variables import EMAIL_PASSWORD
+from email_validator import validate_email, EmailNotValidError
+import smtplib
+from email.mime.text import MIMEText
+
 
 admin = Blueprint("admin", __name__) 
 
