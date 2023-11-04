@@ -4,11 +4,31 @@
 Contact us - Miramar
 {% endblock title %}
 
+{% block bootstrapCss %}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+{% endblock bootstrapCss %} 
+
 {% block customStyles %}
 <link rel="stylesheet" href="{{ url_for('static', filename='user/contact_us.css') }}">
 {% endblock customStyles %}
 
 {% block parent_content %}
+
+{% if error %}
+<div class="alert alert-danger" role="alert">
+
+  {{ error }}
+</div>
+{% endif %}
+
+{% if success_sent %}
+<div class="alert alert-success" role="alert">
+
+  {{ success_sent }}
+</div>
+{% endif %}
 
 <section class="contact_us_con">
   <div class="contact_us_grid_con">
@@ -70,11 +90,11 @@ Contact us - Miramar
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
       </p>
-      <form action="/submit-route" method="post">
+      <form action="{{ url_for('user.contact_us') }}" method="POST">
         <div class="contact_info_form">
-          <input type="text" name="your_name" id="name_input" placeholder="Enter your name*">
-          <input type="email" name="email_input" id="email_input" placeholder="Enter your email*">
-          <textarea name="message" id="message_text_area" cols="30" rows="6" placeholder="Message*"></textarea>
+          <input type="text" name="name" id="name_input" placeholder="Enter your name*" value={{name}}>
+          <input type="email" name="email" id="email_input" placeholder="Enter your email*" value={{email}}>
+          <textarea name="message" id="message_text_area" cols="30" rows="6" placeholder="Message*" value={{message}}></textarea>
           <button type="submit">Submit</button>
         </div>
       </form>
