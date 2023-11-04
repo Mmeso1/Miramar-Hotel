@@ -62,7 +62,7 @@ def email_compose():
                 with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server: 
                     smtp_server.login("testingweb3phoenix@gmail.com", EMAIL_PASSWORD)
                     smtp_server.sendmail(fromx, to, msg.as_string())
-                    success_sent = 'Email sent successfully!, Google might ome times sort this mails to spam, kindly check that too'
+                    success_sent = 'Email sent successfully!, Google might some times sort this mails to spam, kindly check that too'
                     return render_template("admin/email-compose.html", page="Email Compose", success_sent=success_sent)
             except Exception as e:
                 error = f"An error occurred while sending the email: {str(e)}"
