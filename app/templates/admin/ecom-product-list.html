@@ -1,7 +1,37 @@
-﻿{% extends "admin/base.html" %} {% block content %}
+﻿{% extends "admin/base.html" %} 
+{% block content %}
 
 <div class="content-body">
   <div class="container-fluid">
+    <button data-modal-id="roomModal" id="addNewRoomBtn">+ Add new room</button>
+
+    <div data-modal-id="roomsModal" id="modal2">
+      <!-- Modal content -->
+      <div class="modal-content-2">
+        <form action="" method="" >
+        <legend>Add rooms details below</legend>
+        <button class="btn-close">X</button>
+        <label for="image1">Image 1 URL</label>
+        <input type="text" name="image1" placeholder="Enter Image url.." />
+        <label for="image2">Image 2 URL</label>
+        <input type="text" name="image2" placeholder="Enter Image url.." />
+        <label for="image3">Image 3 URL</label>
+        <input type="text" name="image3" placeholder="Enter Image url.." />
+        <label for="description">Description</label>
+        <input type="text" name="description" placeholder="Enter hotel description.." />
+        <label for="max_occupancy">Max capacity</label>
+        <input type="number" name="max_occupancy" placeholder="Enter the max number of guest" />
+        <label for="view">View</label>
+        <input type="text" name="view" placeholder="Enter the view" />
+        <label for="status">Availability </label>
+        <input name="status" class="item" type="text" value="availabe"/>
+        <label for="price">price</label>
+        <input type="number" name="price" />
+        <button class="btn" type="submit">Add room</button>
+      </form>
+      </div>
+
+    </div>
     <div class="row">
       <div class="col-lg-12 col-xl-6">
         <div class="card">
@@ -17,9 +47,37 @@
                     />
                   </div>
                 </div>
+
+
+                  <!-- Add a unique ID to each modal -->
+                  <!-- The Modal -->
+              <div data-modal-id="imgModal1" class="modal">
+
+              <!-- Modal content -->
+              <div class="modal-content">
+                <form action="" method="">
+                <legend>Change the hotel images</legend>
+                <button class="btn-close">X</button>
+                <label for="image1">Image 1 URL</label>
+                <input type="text" name="image1" placeholder="Enter Image url.." />
+                <label for="image2">Image 2 URL</label>
+                <input type="text" name="image2" placeholder="Enter Image url.." />
+                <label for="image3">Image 3 URL</label>
+                <input type="text" name="image3" placeholder="Enter Image url.." />
+                <button class="btn" type="submit">Save changes</button>
+                </form>
+              </div>
+        
+            </div>
               </div>
               <div class="col-md-7 col-xxl-12">
                 <div class="new-arrival-content position-relative">
+                  <div class="editBtns">
+                    <button data-modal-id="imgModal1" class="editImgs">Edit Images</button>
+                    <button data-modal-id="editRooms1"  class="editRooms">Edit room details</button>
+                  </div>
+
+                  <form action="" method="" class="roomDeet">
                   <input
                     type="text"
                     class="room_name"
@@ -44,9 +102,9 @@
                         disabled
                     /></span>
                   </div>
-                  <label for="status">Availability </label>:
-                  <input name="status" class="item" type="checkbox" disabled />
-                  <label for="max_occupancy"> Max-Capacity </label>:
+                  <label for="status">Availability</label>
+                  <input name="status" class="item" type="text" disabled value="availabe" />
+                  <label for="max_occupancy">Max-Capacity :</label>
                   <input
                     type="number"
                     name="max_occupancy"
@@ -54,13 +112,15 @@
                     disabled
                     value="0"
                   />
+                  <label for="view">View :</label>
                   <input
                     type="text"
                     name="view"
                     class="minor_room_details"
                     disabled
-                    value="Lake view"
+                    placeholder="Lake view"
                   />
+                  <label for="width">Width :</label>
                   <input
                     type="text"
                     name="width"
@@ -74,15 +134,17 @@
                     class="text-content"
                     rows="5"
                     cols="50"
-                  >
- There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</textarea
-                  >
+                  >Enter description...</textarea>
+                </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!--2nd card-->
+
       <div class="col-lg-12 col-xl-6">
         <div class="card">
           <div class="card-body">
@@ -97,6 +159,137 @@
                     />
                   </div>
                 </div>
+                         <!--The Modal -->
+            <div data-modal-id="imgModal2" class="modal">
+
+               <!--Modal content -->
+              <div class="modal-content">
+                <legend>Change the hotel images</legend>
+                <form action="" method="">
+                <button class="btn-close">X</button>
+                <label for="image1">Image 1 URL</label>
+                <input type="text" name="image1" placeholder="Enter Image url.." />
+                <label for="image2">Image 2 URL</label>
+                <input type="text" name="image2" placeholder="Enter Image url.." />
+                <label for="image3">Image 3 URL</label>
+                <input type="text" name="image3" placeholder="Enter Image url.." />
+                <button class="btn" type="submit">Save changes</button>
+                </form>
+              </div>
+        
+            </div>
+              </div>
+              <div class="col-md-7 col-xxl-12">
+                <div class="new-arrival-content position-relative">
+                  <div class="editBtns">
+                    <button data-modal-id="imgModal1" class="editImgs">Edit Images</button>
+                    <button data-modal-id="editRooms1"  class="editRooms">Edit room details</button>
+                  </div>
+                  <form action="" method="" class="roomDeet">
+                  <input
+                    type="text"
+                    class="room_name"
+                    name="room_name"
+                    value="Solid Women's V-neck Dark T-Shirt"
+                    disabled
+                  />
+                  <div class="comment-review star-rating">
+                    <ul>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                    </ul>
+                    <span class="dollar_sign"
+                      >$<input
+                        type="number"
+                        name="price"
+                        class="price"
+                        value="480.00"
+                        disabled
+                    /></span>
+                  </div>
+                  <label for="status" >Availability </label>
+                  <input name="status" type="text" disabled value="availabe" />
+                  <label for="max_occupancy">Max-Capacity :</label>
+                  <input
+                    type="number"
+                    name="max_occupancy"
+                    class="minor_room_detail"
+                    disabled
+                    value="0"
+                  />
+                  <label for="view">View :</label>
+                  <input
+                    type="text"
+                    name="view"
+                    class="minor_room_details"
+                    disabled
+                    placeholder="Lake view"
+                  />
+                  <label for="width">Width :</label>
+                  <input
+                    type="text"
+                    name="width"
+                    class="minor_room_detail"
+                    disabled
+                    placeholder="50 sq2"
+                  />
+                  <textarea
+                    disabled
+                    name="description"
+                    class="text-content"
+                    rows="5"
+                    cols="50"
+                  >Enter description...</textarea
+                  >
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+
+    </div>
+  </div>
+</div>
+
+
+      <!-- <div class="col-lg-12 col-xl-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="row m-b-30">
+              <div class="col-md-5 col-xxl-12">
+                <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
+                  <div class="new-arrivals-img-contnent">
+                    <img
+                      class="img-fluid"
+                      src="https://images.pexels.com/photos/3754594/pexels-photo-3754594.jpeg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <button data-modal-id="imgModal2" class="editImgs">Edit Images</button>
+                         The Modal 
+            <div data-modal-id="imgModal2" class="modal">
+
+               Modal content 
+              <div class="modal-content">
+                <legend>Change the hotel images</legend>
+                <button class="btn-close">X</button>
+                <label for="image1">Image 1 URL</label>
+                <input type="text" name="image1" placeholder="Enter Image url.." />
+                <label for="image2">Image 2 URL</label>
+                <input type="text" name="image2" placeholder="Enter Image url.." />
+                <label for="image3">Image 3 URL</label>
+                <input type="text" name="image3" placeholder="Enter Image url.." />
+                <button class="btn" type="submit">Save changes</button>
+              </div>
+        
+            </div>
               </div>
               <div class="col-md-7 col-xxl-12">
                 <div class="new-arrival-content position-relative">
@@ -177,6 +370,7 @@
                     />
                   </div>
                 </div>
+                <button id="editImgs" class="editImgs">Edit Images</button>
               </div>
               <div class="col-md-7 col-xxl-12">
                 <div class="new-arrival-content position-relative">
@@ -257,6 +451,7 @@
                     />
                   </div>
                 </div>
+                <button id="editImgs" class="editImgs">Edit Images</button>
               </div>
               <div class="col-md-7 col-xxl-12">
                 <div class="new-arrival-content position-relative">
@@ -335,9 +530,26 @@
                       src="https://images.pexels.com/photos/6394559/pexels-photo-6394559.jpeg"
                       alt=""
                     />
-					<div class="edit_con"><i class="fa fa-pencil" aria-hidden="true"></i></div>
                   </div> 
                 </div>
+                <button id="editImgs" class="editImgs">Edit Images</button>
+                   The Modal 
+            <div id="imgModal" class="modal">
+
+               Modal content 
+              <div class="modal-content">
+                <legend>Change the hotel images</legend>
+                <button class="btn-close">X</button>
+                <label for="image1">Image 1 URL</label>
+                <input type="text" name="image1" placeholder="Enter Image url.." />
+                <label for="image2">Image 2 URL</label>
+                <input type="text" name="image2" placeholder="Enter Image url.." />
+                <label for="image3">Image 3 URL</label>
+                <input type="text" name="image3" placeholder="Enter Image url.." />
+                <button class="btn" type="submit">Save changes</button>
+              </div>
+        
+            </div>
               </div>
               <div class="col-md-7 col-xxl-12">
                 <div class="new-arrival-content position-relative">
@@ -418,6 +630,7 @@
                     />
                   </div>
                 </div>
+                <button id="editImgs"  class="editImgs">Edit Images</button>
               </div>
               <div class="col-md-7 col-xxl-12">
                 <div class="new-arrival-content position-relative">
@@ -434,14 +647,6 @@
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
                     </ul>
-                    <span class="review-text">(34 reviews) / </span
-                    ><a
-                      class="product-review"
-                      href=""
-                      data-bs-toggle="modal"
-                      data-bs-target="#reviewModal"
-                      >Write a review?</a
-                    >
                     <p class="price">$600.00</p>
                   </div>
                   <p>
@@ -459,28 +664,11 @@
                   </p>
                 </div>
               </div>
-            </div>
+            </div> 
           </div>
         </div>
-      </div>
-
-	  <!-- The Modal -->
-<div id="imgModal" class="modal">
-
-	<!-- Modal content -->
-	<div class="modal-content">
-	  <span class="close">&times;</span>
-	  <label for="image1">Image 1 URL</label>
-	  <input type="text" name="image1" placeholder="Enter Image url.." />
-	  <label for="image2">Image 2 URL</label>
-	  <input type="text" name="image2" placeholder="Enter Image url.." />
-	  <label for="image3">Image 3 URL</label>
-	  <input type="text" name="image3" placeholder="Enter Image url.." />
-	</div>
-  
-  </div>
+      </div> -->
 
 
-{% block customJs %}
-<script src="{{ url_for('static', filename='admin/js/edit-rooms-info.js') }}"></script>
-{% endblock customJs %} {% endblock %}
+{% block customJs %}<script src="{{ url_for('static', filename='admin/js/edit-rooms-info.js') }}"></script>{% endblock customJs %}
+ {% endblock %}
