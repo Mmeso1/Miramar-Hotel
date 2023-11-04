@@ -1,10 +1,9 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash 
+from flask import Blueprint, render_template, request, redirect, url_for, flash,  session 
 from app.config.variables import EMAIL_PASSWORD
 from email_validator import validate_email, EmailNotValidError
 import smtplib
 from email.mime.text import MIMEText
 import os
-from flask import Blueprint, flash, redirect, render_template, request, session, url_for
 from flask import current_app
 from ..config.database import db
 from werkzeug.utils import secure_filename
