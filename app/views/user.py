@@ -1,13 +1,13 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash,  session 
-from app.config.variables import EMAIL_PASSWORD
-from email_validator import validate_email, EmailNotValidError
-import smtplib
-from email.mime.text import MIMEText
 import os
 from flask import current_app
 from ..config.database import db
 from werkzeug.utils import secure_filename
-from app.models import User
+from app.models import User 
+from app.config.variables import EMAIL_PASSWORD
+from email_validator import validate_email, EmailNotValidError
+import smtplib
+from email.mime.text import MIMEText
 
 def validate_guest_email( email_address):
     try:
@@ -101,7 +101,6 @@ def contact_us():
                 error = f"An error occurred while sending the email: {str(e)}"
 
     return render_template("user/contact_us.html", page_name=page, error=error)
-    return render_template("user/contact_us.html", page_name=page)
 
 @user.route("/profile")
 def profile_page():

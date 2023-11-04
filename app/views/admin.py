@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, flash, request 
 from app.views.decorators import admin_required
 from app.config.variables import EMAIL_PASSWORD
 from email_validator import validate_email, EmailNotValidError
@@ -11,7 +11,6 @@ def validate_guest_email( email_address):
         return True
     except EmailNotValidError as e:
         return False
-
 
 admin = Blueprint("admin", __name__) 
 
