@@ -71,18 +71,21 @@
             </div>
               </div>
               <div class="col-md-7 col-xxl-12">
+                <div class="editBtns">
+                  <button data-modal-id="imgModal1" class="editImgs">Edit Images</button>
+                  <button data-modal-id="editRooms1"  class="editRooms" onclick="editRoomInfo(this, event)">Edit room details</button>
+                </div>
                 <div class="new-arrival-content position-relative">
-                  <div class="editBtns">
-                    <button data-modal-id="imgModal1" class="editImgs">Edit Images</button>
-                    <button data-modal-id="editRooms1"  class="editRooms">Edit room details</button>
-                  </div>
+                    <!-- when looping through all these for the db. make sure to change the ID's from hardcoded to the id of each element-->
 
                   <form action="" method="" class="roomDeet">
+                  
+                  <div class="inputsCon">
                   <input
                     type="text"
                     class="room_name"
                     name="room_name"
-                    value="Solid Women's V-neck Dark T-Shirt"
+                    value="Premium beasch side room"
                     disabled
                   />
                   <div class="comment-review star-rating">
@@ -128,13 +131,16 @@
                     disabled
                     value="50 sq2"
                   />
+                </div>
                   <textarea
                     disabled
                     name="description"
                     class="text-content"
                     rows="5"
                     cols="50"
-                  >Enter description...</textarea>
+                    placeholder="Enter description..."
+                  ></textarea>
+                  <button data-modal-id="saveRooms1" class="saveRooms" type="submit">Save changes</button>
                 </form>
                 </div>
               </div>
@@ -159,7 +165,8 @@
                     />
                   </div>
                 </div>
-                         <!--The Modal -->
+                         <!--The Modal 
+                        when looping through all these for the db. make sure to change the ID's from hardcoded to the id of each element-->
             <div data-modal-id="imgModal2" class="modal">
 
                <!--Modal content -->
@@ -182,15 +189,16 @@
               <div class="col-md-7 col-xxl-12">
                 <div class="new-arrival-content position-relative">
                   <div class="editBtns">
-                    <button data-modal-id="imgModal1" class="editImgs">Edit Images</button>
-                    <button data-modal-id="editRooms1"  class="editRooms">Edit room details</button>
+                    <button data-modal-id="imgModal1" class="editImgs" type="submit">Edit Images</button>
+                    <button data-modal-id="editRooms1" class="editRooms"  onclick="editRoomInfo(this, event)">Edit room details</button>
                   </div>
                   <form action="" method="" class="roomDeet">
+                      <div class="inputsCon">
                   <input
                     type="text"
                     class="room_name"
                     name="room_name"
-                    value="Solid Women's V-neck Dark T-Shirt"
+                    value="Platnium lavre suite"
                     disabled
                   />
                   <div class="comment-review star-rating">
@@ -236,14 +244,17 @@
                     disabled
                     placeholder="50 sq2"
                   />
+                </div>
                   <textarea
                     disabled
                     name="description"
                     class="text-content"
                     rows="5"
                     cols="50"
-                  >Enter description...</textarea
+                    placeholder="Enter description..."
+                  ></textarea
                   >
+                  <button data-modal-id="saveRooms2" class="saveRooms" type="submit">Save changes</button>
                 </form>
                 </div>
               </div>
