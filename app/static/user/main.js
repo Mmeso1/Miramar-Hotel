@@ -52,8 +52,7 @@ changeBackground();
 console.log("hello")
 
 document.addEventListener('DOMContentLoaded', function() {
-    const nav = document.querySelector('.nav1'); // Select your navigation bar element
-
+    const nav = document.querySelector('.nav1'); 
     window.onscroll = () => {
         if (window.scrollY > 0) {
             nav.style.backgroundColor = 'rgba(169, 169, 169, 0.8)'; // Change background color when scrolled down

@@ -1,0 +1,288 @@
+:root {
+    --color-primary: yellow;
+    --color-secondary: red;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box 
+}
+
+.wrapper h1,
+.wrapper h2,
+.wrapper h3,
+.wrapper h4,
+.wrapper h5,
+.wrapper h6,
+.wrapper a,
+.wrapper td,
+.wrapper th,
+.wrapper i,
+.wrapper span,
+.wrapper p,
+.wrapper button {
+    font-family: 'Marcellus', serif;
+    text-decoration: none;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+}
+
+.wrapper .left {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-flow: column;
+}
+
+.wrapper .bookings {
+    height: 80%;
+    width: 100%;
+    padding: 1rem;
+}
+
+.wrapper .bookings-head {
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.wrapper #profileTabToggler {
+    display: none;
+}
+
+.wrapper .bookings-head i {
+    position: absolute;
+    left: 0;
+    margin-left: 1rem;
+    color: var(--color-secondary);
+}
+
+.wrapper .bookings-head h3 {
+    text-transform: uppercase;
+}
+
+/*---------------------
+  Shop Cart
+-----------------------*/
+
+.wrapper table {
+	width: 100%;
+}
+
+.wrapper thead {
+	border-bottom: 1px solid #f2f2f2;
+}
+
+.wrapper thead th {
+	font-size: 18px;
+	color: #111111;
+	font-weight: 600;
+	text-transform: capitalize;
+	padding-bottom: 20px;
+    text-align: center;
+}
+
+.wrapper tbody tr {
+	border-bottom: 1px solid #f2f2f2;
+}
+
+.wrapper tbody tr td {
+	padding: 30px 0;
+}
+
+.wrapper tbody tr .cart__product__item {
+	overflow: hidden;
+	width: 300px;
+}
+
+.wrapper tbody tr .cart__product__item img {
+	width: 100%;
+}
+
+.wrapper tbody tr .cart__product__item .cart__product__item__title {
+	overflow: hidden;
+	padding-top: 23px;
+}
+
+.wrapper tbody tr .cart__price {
+	font-size: 16px;
+	color: #ca1515;
+	font-weight: 600;
+	width: 190px;
+    text-align: center;
+}
+
+.wrapper tbody tr .cart__quantity {
+	width: 190px;
+    text-align: center;
+}
+
+.wrapper tbody tr .cart__total {
+	font-size: 16px;
+	color: #ca1515;
+	font-weight: 600;
+	width: 150px;
+    text-align: center;
+}
+
+.wrapper tbody tr .cart__close {
+	text-align: right;
+}
+
+.wrapper tbody tr .cart__close span {
+	height: 45px;
+	width: 45px;
+	background: #f2f2f2;
+	border-radius: 50%;
+	font-size: 18px;
+	color: #111111;
+	line-height: 44px;
+	text-align: center;
+	display: inline-block;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.profile {
+    width: 30%;
+    padding: 1rem;
+    position: relative;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    border-left: 1px solid var(--color-primary);
+    transition: all .5s ease-in-out;
+}
+
+.profile img {
+    width: 60%;
+    border-radius: 50%;
+    margin: 2rem 0;
+}
+
+.profile .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column;
+    text-align: center;
+}
+
+.profile .content p {
+    margin: 0 0 1rem;
+}
+
+.profile .content p i {
+    color: var(--color-primary);
+    font-size: 19px;
+}
+
+.btn-logout {
+    padding: 7px 10px;
+    background: var(--color-primary);
+    color: #ffffff;
+    border-radius: 5px;
+    display: block;
+    margin: 2rem;
+}
+
+.btn-logout:hover {
+    background: #e3e300;    
+}
+
+ /* ***********
+    profile_form
+ ************/
+.profile_form input{
+    border-radius: 5px;
+    border: 1px #bcbcbc solid;   
+    padding: .6rem .4rem;     
+    width: 60%;
+}
+
+.profile_form input:focus{
+    box-shadow: none;
+    outline: #bcbc1c;
+    border: 1px #bcbc1c solid;
+}
+
+#submit, #cancel-button{
+    margin-top: 0.3rem;
+    padding: .4rem;
+    background-color: green;
+    color: #fff;
+    border: transparent;
+    border-radius: 5px;
+    width: 30%;
+}
+
+#cancel-button{
+    background-color: red;
+}
+
+/* for the overlay for upload image */
+.image-upload-form:hover{
+    
+}
+
+/* Media Responsive */
+@media screen and (max-width: 780px) {
+    .profile {
+        display: none;
+        overflow-y: scroll;
+    }
+
+    .wrapper .left {
+        width: 100%;
+        border: none;
+    }
+
+    .wrapper .bookings {
+        width: 100%;
+        border: none;
+    }
+
+    .bookings-head {
+        justify-content: start;
+        margin-top: 2rem;
+        z-index: 999;
+    }
+
+    .bookings-head i {
+        top: 0 !important;
+    }
+	.wrapper tbody tr .cart__product__item img {
+		float: none;
+		margin-right: 0;
+	}
+
+    .bookings-table-body .name {
+        text-align: left;
+    }
+
+    .product_item img {
+        width: 100%;
+    }
+
+    .profile .content {
+        padding-top: 3rem;
+    }
+
+    #bookingsTabToggler {
+        border-bottom: 2px solid var(--color-primary);
+    }
+    .wrapper #profileTabToggler {
+        display: block;
+        margin-left: auto;
+    }
+}

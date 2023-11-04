@@ -1,21 +1,12 @@
-from flask import Blueprint, request, render_template, redirect, url_for, flash 
-from app.config.variables import EMAIL_PASSWORD
-from email_validator import validate_email, EmailNotValidError
-import smtplib
-from email.mime.text import MIMEText
+from flask import Blueprint, render_template
+from app.views.decorators import admin_required
 
-def validate_guest_email( email_address):
-    try:
-        valid = validate_email(email_address)
-        return True
-    except EmailNotValidError as e:
-        return False
-        
 admin = Blueprint("admin", __name__) 
 
 @admin.route("/")
 @admin.route("/home")
-def home_page(): 
+@admin_required
+def home_page():
     flash('Welcome', 'message')
     return render_template("admin/index.html", page="Dashboard")
 

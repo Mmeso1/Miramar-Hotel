@@ -1,0 +1,25 @@
+
+{% set alerts = get_flashed_messages(with_categories=True) %}
+<style>
+  .alert-container {
+    position: fixed;
+    width: 100%;  
+    top: 50px;
+    right: 50px;
+    z-index: 9999;
+    max-width: 300px;
+  }
+  .alert-container > .alert { 
+    width: 100% !important;
+  }
+</style>
+{% if alerts|length %}
+  <div class="alert-container">
+    {% for category, message in alerts %}
+    <div class="alert alert-dismissible text-bg-primary border-0 fade show alert-{{ 'danger' if category == 'error' else category }}" role="alert">
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+       {{ message }}
+    </div>
+    {% endfor %}
+  </div>
+{% endif %}
