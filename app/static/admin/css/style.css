@@ -15805,7 +15805,7 @@ svg.pulse-svg .third-circle {
   margin-left: 0;
   margin-right: 10px;
 }
-[direction="rtl"] .new-arrival-content .dollar_sign .price {
+[direction="rtl"] .new-arrival-content  {
   float: left;
 }
 [direction="rtl"]
@@ -15874,7 +15874,7 @@ svg.pulse-svg .third-circle {
   left: -10px;
   transform: rotate(90deg);
 }
-[direction="rtl"] .new-arrival-content .dollar_sign .price {
+[direction="rtl"] .new-arrival-content {
   float: left;
 }
 [direction="rtl"] .trending-menus .tr-row .num {
@@ -40213,6 +40213,7 @@ table.dataTable.display tbody td {
   font-size: 14px;
   border: none;
   outline: none;
+  text-wrap: nowrap;
   float: right;
 }
 .editImgs:hover {
@@ -40325,7 +40326,7 @@ table.dataTable.display tbody td {
 }
 
 /* ROOMS DETAILS IN THE BOX STYLING */
-.roomDeet {
+.roomDeet .inputsCon{
   display: flex;
   width: inherit;
   height: auto;
@@ -40340,6 +40341,8 @@ table.dataTable.display tbody td {
 }
 
 .roomDeet input {
+  display: flex;
+  flex-direction: column;
   padding: 0.3rem .8rem;
   background-color: transparent;
   border: none;
@@ -40352,6 +40355,7 @@ table.dataTable.display tbody td {
 .roomDeet input:focus {
   border-color: #0366d6;
   outline: none;
+  border-radius: 7px;
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
 
@@ -40371,9 +40375,23 @@ input[type="number"] {
 color: var(--primary);
 font-weight: 600;
 font-size: 1.5rem;
+display: flex;
+align-items: center;
+text-align: center;
+}
+.saveRooms{
+  display: none;
+  color: #fff;
+  padding: 0.5rem .8rem;
+  border-radius: 15px;
+  background-color: #627eea;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  text-wrap: nowrap;
+  margin-top: 8px
 }
 .price {
-max-width: 7rem;
 padding: 0;
 font-size: 1.5rem;
 }
@@ -40394,15 +40412,22 @@ font-size: 1.5rem;
   font-size: 14px;
   border: none;
   outline: none;
+  text-wrap: nowrap;
   display: block;
-  margin: 8px
+  margin-top: 8px
 }
 .editBtns{
   float: right;
-  max-width: 12rem;
+  max-width: 11rem;
   height: auto;
   border: none;
-  background-color: red;
+  display: flex;
+  align-self: flex-end;
+  flex-direction: column;
+  align-items: center;
+}
+.room_name {
+  width: 18rem;
 }
 .editRooms:hover {
   cursor: pointer;
@@ -40435,7 +40460,7 @@ font-size: 1.5rem;
   color: #6e6e6e;
 }
 .new-arrival-content .room_name {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   text-align: left;
   margin-bottom: 0.625rem;
@@ -43092,7 +43117,7 @@ font-size: 1.5rem;
   margin-left: 0;
   margin-right: 10px;
 }
-[direction="rtl"] .new-arrival-content .price {
+[direction="rtl"] .new-arrival-content  {
   float: left;
 }
 [direction="rtl"]
@@ -43161,7 +43186,7 @@ font-size: 1.5rem;
   left: -10px;
   transform: rotate(90deg);
 }
-[direction="rtl"] .new-arrival-content .price {
+[direction="rtl"] .new-arrival-content {
   float: left;
 }
 [direction="rtl"] .trending-menus .tr-row .num {

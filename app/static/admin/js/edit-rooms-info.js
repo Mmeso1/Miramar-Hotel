@@ -51,3 +51,34 @@ window.onclick = function (event) {
     modals.style.display = "none";
   }
 };
+
+// Edit room details
+
+let inEditMode = false;
+function editRoomInfo(button, event) {
+  // Prevent the form from submitting
+  event.preventDefault();
+  // Find the card associated with the clicked button
+  var card = button.closest(".card-body");
+
+  // Find the disabled input fields in that card
+  var disabledInputFields = card.querySelectorAll(".roomDeet input:disabled, .roomDeet textarea:disabled");
+
+  // Toggle the disabled attribute for the disabled input fields
+    disabledInputFields.forEach(function (input) {
+    input.disabled = inEditMode;
+  });
+
+ // Toggle the edit mode
+ inEditMode = !inEditMode;
+
+  // Show or hide the "Save changes" button based on the edit mode
+  var saveButton = card.querySelector(".saveRooms");
+  if (inEditMode) {
+    saveButton.style.display = "block"; // Show the "Save changes" button
+  } else {
+    saveButton.style.display = "none"; // Hide the "Save changes" button
+  }
+
+}
+
