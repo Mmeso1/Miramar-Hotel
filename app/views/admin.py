@@ -5,6 +5,12 @@ from email_validator import validate_email, EmailNotValidError
 import smtplib
 from email.mime.text import MIMEText
 
+def validate_guest_email( email_address):
+    try:
+        valid = validate_email(email_address)
+        return True
+    except EmailNotValidError as e:
+        return False
 
 admin = Blueprint("admin", __name__) 
 
