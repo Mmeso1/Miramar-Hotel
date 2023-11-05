@@ -11,10 +11,12 @@ class Booking(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     room = db.relationship('Room', backref='bookings', lazy=True)
 
-    def __init__(self, date_of_arrival, date_of_departure, status):
+    def __init__(self, date_of_arrival, date_of_departure, status, room_id, user_id):
         self.date_of_arrival = date_of_arrival
         self.date_of_departure = date_of_departure
         self.status = status
+        self.room_id = room_id
+        self.user_id = user_id
 
     
   
@@ -32,5 +34,7 @@ class Booking(db.Model):
         "date_of_arrival": self.date_of_arrival,
         "date_of_departure": self.date_of_departure,
         "status": self.status,
+        "room_id": self.room_id,
+        "user_id": self.user_id,
         }
     

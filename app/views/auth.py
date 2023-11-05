@@ -4,7 +4,7 @@ from flask import Blueprint, render_template, request, session, redirect, url_fo
 from app.models.Token import PasswordResetToken
 from ..config.database import db
 from ..models import User, Room, Booking
-from .decorators import token_expired, user_exists_required
+from .decorators import user_exists_required
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 

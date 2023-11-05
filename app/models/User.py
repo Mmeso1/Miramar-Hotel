@@ -9,7 +9,7 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
     role = db.Column(db.String(20), default="user")
-    image = db.Column(db.String, nullable=True)
+    image = db.Column(db.String, nullable=True, default="https://images.pexels.com/photos/1751279/pexels-photo-1751279.jpeg?auto=compress&cs=tinysrgb")
     date_created = db.Column(db.DateTime, default=datetime.utcnow())
     bookings = db.relationship('Booking', backref='user', lazy=True, foreign_keys="Booking.user_id")
 

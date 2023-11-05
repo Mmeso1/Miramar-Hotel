@@ -3,7 +3,7 @@ import os
 from flask import current_app
 from ..config.database import db
 from werkzeug.utils import secure_filename
-from app.models import User 
+from app.models import Room, User, Bookings
 from app.config.variables import EMAIL_PASSWORD
 from email_validator import validate_email, EmailNotValidError
 import smtplib
@@ -49,11 +49,20 @@ def nearbyplaces():
 @user.route("/rooms")
 def rooms_page():
     page="Rooms"
-    return render_template("user/rooms.html", page_name=page)
+    rooms= Room.query.all()
+    return render_template("user/rooms.html", page_name=page, rooms=rooms)
 
-@user.route("/room-details")
-def room_deets():
-    return render_template("user/room_details.html")
+@user.route("/room-details/<int:room_id>")
+def room_deets(room_id):
+    room = Room.query.get(room_id)
+    
+    if not room:
+        # Handle the case where the room with the given ID doesn't exist
+        flash("Room not found", "error")
+        return redirect(url_for("user.room_page"))
+    
+    return render_template("user/room_details.html", room=room, room_id=room_id)
+
 
 @user.route("/contact_us", methods=['POST', 'GET'])
 def contact_us():
@@ -104,10 +113,31 @@ def contact_us():
 
 @user.route("/profile")
 def profile_page():
+    print("Hey  ")
     user_id = session.get('user_id')
+    print(user_id)
     user = User.query.filter_by(id=user_id).first()
-    return render_template("user/profile.html", user=user)
+    bookings = Bookings.Booking.query.filter_by(user_id=user_id).all() if user_id else []
+    return render_template("user/profile.html", user=user,bookings=bookings)
 
+
+# Delete booking
+@user.route("/cancel-booking/<int:booking_id>", methods=["GET", "POST"])
+def cancel_booking(booking_id):
+    booking = Bookings.Booking.query.get(booking_id)
+    
+    # Check if the booking exists and belongs to the logged-in user
+    if booking and booking.user_id == session["user_id"]:
+        # Delete the booking from the database
+        print(session["user_id"])
+        db.session.delete(booking)
+        db.session.commit()
+        flash("Booking successfully cancelled", "success")
+        return redirect(url_for("user.profile_page"))
+    else:
+        flash("Booking not found or you don't have permission to cancel it", "error")
+        return redirect(url_for("user.profile_page"))
+    
 # So tha the user can upload images to their profile
 @user.route("/upload_image", methods=["POST"])
 def upload_image():

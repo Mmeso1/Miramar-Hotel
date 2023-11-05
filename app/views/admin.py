@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, flash, request 
+from flask import Blueprint, render_template, flash, request
+from ..models import Room, User
 from app.views.decorators import admin_required
 from app.config.variables import EMAIL_PASSWORD
 from email_validator import validate_email, EmailNotValidError
@@ -77,9 +78,10 @@ def email_compose():
 def price_page():
     return render_template("admin/uc-lightgallery.html", page="Gallery") #ecom-product-grid.html
 
-@admin.route("/room")
+@admin.route("/room", methods=['POST', 'GET'])
 def room_page():
-    return render_template("admin/ecom-product-list.html", page="Rooms")
+    rooms = Room.query.all()
+    return render_template("admin/ecom-product-list.html", page="Rooms", rooms=rooms)
 
 @admin.route("/order")
 def order_page():
@@ -87,5 +89,6 @@ def order_page():
 
 @admin.route("/customer")
 def customer_page():
-    return render_template("admin/ecom-customers.html", page="Customers")
+    users=User.query.all()
+    return render_template("admin/ecom-customers.html", page="Customers", users=users)
 

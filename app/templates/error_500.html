@@ -1,4 +1,12 @@
-{% extends "user/base.html" %}
+{% if "user_token" in session %}
+    {% if session["user_role"] == "admin" %}
+        {% extends "admin/base.html" %}
+    {% else %}
+        {% extends "user/base.html" %}
+    {% endif %}
+{% else %}
+    {% extends "user/base.html" %}
+{% endif %}
 
 {% block title %}
 Internal server error - Miriamar
