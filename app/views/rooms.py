@@ -1,6 +1,6 @@
 import datetime
 from datetime import datetime
-from flask import Blueprint, request, render_template, redirect, session, url_for, flash
+from flask import Blueprint, jsonify, request, render_template, redirect, session, url_for, flash
 from app.models.Bookings import Booking
 from app.views.decorators import user_logged_in
 from ..models import Room, Token
@@ -154,12 +154,12 @@ def book_room(room_id):
         date_of_departure = datetime.strptime(date_of_departure_str, '%Y-%m-%d').date()
         # Check if the arrival date is before the departure date
         if date_of_arrival >= date_of_departure:
-            return render_template("user/room_deets.html", error="Arrival date must be before departure date")
+            return render_template("user/room_details.html", error="Arrival date must be before departure date")
 
         # Check if the room is available based on its availability
         room = Room.query.get(room_id)
         if room.status != "available":
-            return render_template("user/room_deets.html", error="Room is not available for booking")
+            return render_template("user/room_details.html", error="Room is not available for booking")
 
         # Create a new booking record in the database
         booking = Booking(date_of_arrival=date_of_arrival, date_of_departure=date_of_departure, status="pending", room_id=room_id, user_id=session["user_id"])
@@ -169,4 +169,23 @@ def book_room(room_id):
         # Redirect or render a success page
         return redirect(url_for("user.profile_page"))
 
-    return render_template("user/room_deets.html")
+    return render_template("user/room_details.html")
+
+
+@room.route("/update-booking-status/<int:booking_id>", methods=["POST"])
+def update_booking_status(booking_id):
+    new_status = request.json.get("newStatus")
+
+    # Retrieve the booking from the database based on the booking_id
+    booking = Booking.query.get(booking_id)
+
+    if booking:
+        # Update the status of the booking
+        booking.status = new_status
+
+        # Save the changes to the database
+        db.session.commit()
+
+        return jsonify({"message": "Booking status updated successfully"})
+    else:
+        return jsonify({"message": "Booking not found"}, 404)

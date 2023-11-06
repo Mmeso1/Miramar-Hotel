@@ -83,9 +83,16 @@ def room_page():
     rooms = Room.query.all()
     return render_template("admin/ecom-product-list.html", page="Rooms", rooms=rooms)
 
+from flask import render_template, Blueprint
+from app.models import Booking
+
 @admin.route("/order")
 def order_page():
-    return render_template("admin/ecom-product-order.html", page="Booking Requests")
+    # Fetch booking data from the database
+    bookings = Booking.query.all()
+    return render_template("admin/ecom-product-order.html", page="Booking Requests", bookings=bookings)
+    # To update booked rooms status
+
 
 @admin.route("/customer")
 def customer_page():

@@ -116,6 +116,9 @@ def request_password_reset():
 
     # Store the token and user email in the database
     password_reset_token = PasswordResetToken(user_id, token=token, expiration=expiration)
+    if not user_id:
+        flash("Login to access this page", "error")
+        return redirect(url_for('user.login_page'))
     db.session.add(password_reset_token)
     db.session.commit()
 

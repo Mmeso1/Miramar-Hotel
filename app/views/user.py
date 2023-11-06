@@ -113,9 +113,7 @@ def contact_us():
 
 @user.route("/profile")
 def profile_page():
-    print("Hey  ")
     user_id = session.get('user_id')
-    print(user_id)
     user = User.query.filter_by(id=user_id).first()
     bookings = Bookings.Booking.query.filter_by(user_id=user_id).all() if user_id else []
     return render_template("user/profile.html", user=user,bookings=bookings)
@@ -129,7 +127,6 @@ def cancel_booking(booking_id):
     # Check if the booking exists and belongs to the logged-in user
     if booking and booking.user_id == session["user_id"]:
         # Delete the booking from the database
-        print(session["user_id"])
         db.session.delete(booking)
         db.session.commit()
         flash("Booking successfully cancelled", "success")
@@ -138,7 +135,7 @@ def cancel_booking(booking_id):
         flash("Booking not found or you don't have permission to cancel it", "error")
         return redirect(url_for("user.profile_page"))
     
-# So tha the user can upload images to their profile
+# So that the user can upload images to their profile
 @user.route("/upload_image", methods=["POST"])
 def upload_image():
     profile_img = request.files.get("img")
