@@ -20,10 +20,12 @@ def create_app():
   from .views.user import user
   from .views.admin import admin
   from .views.auth import auth
+  from .views.rooms import room
 
   app.register_blueprint(user, url_prefix="/")
   app.register_blueprint(admin, url_prefix="/admin")
   app.register_blueprint(auth, url_prefix="/")
+  app.register_blueprint(room, url_prefix="/")
 
   # MIDDLEWARES 
   JWTManager(app)

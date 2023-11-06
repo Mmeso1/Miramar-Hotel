@@ -1,16 +1,20 @@
 ﻿{% extends "admin/base.html" %} 
 {% block content %}
 
+{% include "alerts.html" %}
+
 <div class="content-body">
   <div class="container-fluid">
-    <button data-modal-id="roomModal" id="addNewRoomBtn">+ Add new room</button>
+    <button data-modal-id="roomModal" class="mb-4" id="addNewRoomBtn">+ Add new room</button>
 
-    <div data-modal-id="roomsModal" id="modal2">
+    <div data-modal-id="roomModal" id="modal2">
       <!-- Modal content -->
       <div class="modal-content-2">
-        <form action="" method="" >
+        <form action="{{ url_for('room.room_page')}}" method="post" >
         <legend>Add rooms details below</legend>
         <button class="btn-close">X</button>
+        <label for="room_name">Room name</label>
+        <input type="text" name="room_name" placeholder="Enter Room name" />
         <label for="image1">Image 1 URL</label>
         <input type="text" name="image1" placeholder="Enter Image url.." />
         <label for="image2">Image 2 URL</label>
@@ -24,7 +28,9 @@
         <label for="view">View</label>
         <input type="text" name="view" placeholder="Enter the view" />
         <label for="status">Availability </label>
-        <input name="status" class="item" type="text" value="availabe"/>
+        <input name="status" class="item" type="text" value="available"/>
+        <label for="width">Width </label>
+        <input name="width" class="item" type="text" placeholder="Enter width of room"/>
         <label for="price">price</label>
         <input type="number" name="price" />
         <button class="btn" type="submit">Add room</button>
@@ -32,7 +38,10 @@
       </div>
 
     </div>
+
+    <!-- The card for where the details of the room will be displayed -->
     <div class="row">
+      {% for room in rooms %}
       <div class="col-lg-12 col-xl-6">
         <div class="card">
           <div class="card-body">
@@ -42,633 +51,114 @@
                   <div class="new-arrivals-img-contnent">
                     <img
                       class="img-fluid"
-                      src="https://images.pexels.com/photos/3201761/pexels-photo-3201761.jpeg"
+                      src="{{ room.image1 }}"
                       alt=""
                     />
                   </div>
                 </div>
-
-
-                  <!-- Add a unique ID to each modal -->
-                  <!-- The Modal -->
-              <div data-modal-id="imgModal1" class="modal">
-
-              <!-- Modal content -->
-              <div class="modal-content">
-                <form action="" method="">
-                <legend>Change the hotel images</legend>
-                <button class="btn-close">X</button>
-                <label for="image1">Image 1 URL</label>
-                <input type="text" name="image1" placeholder="Enter Image url.." />
-                <label for="image2">Image 2 URL</label>
-                <input type="text" name="image2" placeholder="Enter Image url.." />
-                <label for="image3">Image 3 URL</label>
-                <input type="text" name="image3" placeholder="Enter Image url.." />
-                <button class="btn" type="submit">Save changes</button>
-                </form>
+                      
+                <!-- Modal for images -->
+                <div data-modal-id="imgModal1" class="modal">
+                  <!--Modal content -->
+                  <div class="modal-content">
+                    <legend>Change the hotel images</legend>
+                    <form action="{{ url_for('room.update_images', room_id=room.id) }}" method="post">
+                    <button class="btn-close" data-bs-dismiss="modal">X</button>
+                    <label for="image1">Image 1 URL</label>
+                    <input type="text" name="image1" placeholder="Enter Image url.." />
+                    <label for="image2">Image 2 URL</label>
+                    <input type="text" name="image2" placeholder="Enter Image url.." />
+                    <label for="image3">Image 3 URL</label>
+                    <input type="text" name="image3" placeholder="Enter Image url.." />
+                    <button class="btn" type="submit">Save changes</button>
+                    </form>
+                  </div>
+                </div>
               </div>
-        
-            </div>
-              </div>
+              
               <div class="col-md-7 col-xxl-12">
                 <div class="new-arrival-content position-relative">
                   <div class="editBtns">
-                    <button data-modal-id="imgModal1" class="editImgs">Edit Images</button>
-                    <button data-modal-id="editRooms1"  class="editRooms">Edit room details</button>
+                    <button data-modal-id="imgModal1" class="editImgs" type="submit">Edit Images</button>
+                    <button data-id="{{ room.id }}" class="editRooms">Edit room details</button>
                   </div>
+                  
+                  <div data-id="{{ room.id }}-viewMode">
+                    <!-- Viewing mode content -->
+                    <h3 class="room_name" style="font-size: x-large;">{{ room.room_name }}</h3>
+                    <div class="comment-review star-rating">
+                      <ul>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                      </ul>
+                      <span class="dollar_sign">$ {{ room.price }}</span>
+                    </div>
+                    <h4 class="minor_room_detail" id="status">Availability: <br>  &nbsp; &nbsp; &nbsp; &nbsp; {{ room.status }}</h4>
+                    <h4 class="minor_room_detail" id="max_occupancy">Max-Capacity: <br>  &nbsp; &nbsp; &nbsp; &nbsp; {{ room.max_occupancy }}</h4>
+                    <h4 class="minor_room_details" id="view">View: <br>  &nbsp; &nbsp; &nbsp; &nbsp; {{ room.view }}</h4>
+                    <h4 class="minor_room_detail" id="width">Width: <br>  &nbsp; &nbsp; &nbsp; &nbsp; {{ room.width }}</h4>
+                    <h4 class="text-content" style="font-size: larger;" id="description">{{ room.description }}</h4>
+                  </div>
+                  
+                  <div data-id="{{ room.id }}-editMode" style="display: none;">
+                    <!-- Editing mode content (form) -->
+                    <form action="{{ url_for('room.update_room', room_id=room.id) }}" method="POST">
+                        <input type="text" class="room_name" name="room_name" placeholder="Room name" value="{{ room.room_name }}">
+                        <div class="comment-review star-rating">
+                            <ul>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                            <span class="dollar_sign">$<input type="number" name="price" class="price" placeholder="Price" value="{{ room.price }}"></span>
+                        </div>
+                        <input type="text" class="item" name="status" placeholder="Availability" value="{{ room.status }}"> <br>
+                        <input type="number" class="minor_room_detail" name="max_occupancy" placeholder="Max-Capacity" value="{{ room.max_occupancy }}"> <br>
+                        <input type="text" class="minor_room_details" name="view" placeholder="View" value="{{ room.view }}"> <br>
+                        <input type="text" class="minor_room_detail" name="width" placeholder="Width" value="{{ room.width }}"> <br>   
+                        <textarea name="description" class="text-content" placeholder="Description" style="border: 1px solid #ccc;" rows="5" cols="50">{{ room.description }}</textarea> <br>
+                        <button type="submit" id="submit" class="editRooms">Save changes</button>
+                        <button data-id="{{ room.id }}-cancelButton" type="button" class="editRooms">Cancel</button>
+                    </form>
+                </div>
+                
 
-                  <form action="" method="" class="roomDeet">
-                  <input
-                    type="text"
-                    class="room_name"
-                    name="room_name"
-                    value="Solid Women's V-neck Dark T-Shirt"
-                    disabled
-                  />
-                  <div class="comment-review star-rating">
-                    <ul>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <span class="dollar_sign"
-                      >$<input
-                        type="number"
-                        name="price"
-                        class="price"
-                        value="480.00"
-                        disabled
-                    /></span>
-                  </div>
-                  <label for="status">Availability</label>
-                  <input name="status" class="item" type="text" disabled value="availabe" />
-                  <label for="max_occupancy">Max-Capacity :</label>
-                  <input
-                    type="number"
-                    name="max_occupancy"
-                    class="minor_room_detail"
-                    disabled
-                    value="0"
-                  />
-                  <label for="view">View :</label>
-                  <input
-                    type="text"
-                    name="view"
-                    class="minor_room_details"
-                    disabled
-                    placeholder="Lake view"
-                  />
-                  <label for="width">Width :</label>
-                  <input
-                    type="text"
-                    name="width"
-                    class="minor_room_detail"
-                    disabled
-                    value="50 sq2"
-                  />
-                  <textarea
-                    disabled
-                    name="description"
-                    class="text-content"
-                    rows="5"
-                    cols="50"
-                  >Enter description...</textarea>
-                </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <!--2nd card-->
-
-      <div class="col-lg-12 col-xl-6">
-        <div class="card">
-          <div class="card-body">
-            <div class="row m-b-30">
-              <div class="col-md-5 col-xxl-12">
-                <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
-                  <div class="new-arrivals-img-contnent">
-                    <img
-                      class="img-fluid"
-                      src="https://images.pexels.com/photos/3754594/pexels-photo-3754594.jpeg"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                         <!--The Modal -->
-            <div data-modal-id="imgModal2" class="modal">
-
-               <!--Modal content -->
-              <div class="modal-content">
-                <legend>Change the hotel images</legend>
-                <form action="" method="">
-                <button class="btn-close">X</button>
-                <label for="image1">Image 1 URL</label>
-                <input type="text" name="image1" placeholder="Enter Image url.." />
-                <label for="image2">Image 2 URL</label>
-                <input type="text" name="image2" placeholder="Enter Image url.." />
-                <label for="image3">Image 3 URL</label>
-                <input type="text" name="image3" placeholder="Enter Image url.." />
-                <button class="btn" type="submit">Save changes</button>
-                </form>
-              </div>
-        
-            </div>
-              </div>
-              <div class="col-md-7 col-xxl-12">
-                <div class="new-arrival-content position-relative">
-                  <div class="editBtns">
-                    <button data-modal-id="imgModal1" class="editImgs">Edit Images</button>
-                    <button data-modal-id="editRooms1"  class="editRooms">Edit room details</button>
-                  </div>
-                  <form action="" method="" class="roomDeet">
-                  <input
-                    type="text"
-                    class="room_name"
-                    name="room_name"
-                    value="Solid Women's V-neck Dark T-Shirt"
-                    disabled
-                  />
-                  <div class="comment-review star-rating">
-                    <ul>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <span class="dollar_sign"
-                      >$<input
-                        type="number"
-                        name="price"
-                        class="price"
-                        value="480.00"
-                        disabled
-                    /></span>
-                  </div>
-                  <label for="status" >Availability </label>
-                  <input name="status" type="text" disabled value="availabe" />
-                  <label for="max_occupancy">Max-Capacity :</label>
-                  <input
-                    type="number"
-                    name="max_occupancy"
-                    class="minor_room_detail"
-                    disabled
-                    value="0"
-                  />
-                  <label for="view">View :</label>
-                  <input
-                    type="text"
-                    name="view"
-                    class="minor_room_details"
-                    disabled
-                    placeholder="Lake view"
-                  />
-                  <label for="width">Width :</label>
-                  <input
-                    type="text"
-                    name="width"
-                    class="minor_room_detail"
-                    disabled
-                    placeholder="50 sq2"
-                  />
-                  <textarea
-                    disabled
-                    name="description"
-                    class="text-content"
-                    rows="5"
-                    cols="50"
-                  >Enter description...</textarea
-                  >
-                </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-   
-
+      {% endfor %}
     </div>
   </div>
 </div>
 
+<style>
 
-      <!-- <div class="col-lg-12 col-xl-6">
-        <div class="card">
-          <div class="card-body">
-            <div class="row m-b-30">
-              <div class="col-md-5 col-xxl-12">
-                <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
-                  <div class="new-arrivals-img-contnent">
-                    <img
-                      class="img-fluid"
-                      src="https://images.pexels.com/photos/3754594/pexels-photo-3754594.jpeg"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <button data-modal-id="imgModal2" class="editImgs">Edit Images</button>
-                         The Modal 
-            <div data-modal-id="imgModal2" class="modal">
+/* Style form elements */
+form {
+  margin: 20px;
+  border-radius: 5px;
+}
 
-               Modal content 
-              <div class="modal-content">
-                <legend>Change the hotel images</legend>
-                <button class="btn-close">X</button>
-                <label for="image1">Image 1 URL</label>
-                <input type="text" name="image1" placeholder="Enter Image url.." />
-                <label for="image2">Image 2 URL</label>
-                <input type="text" name="image2" placeholder="Enter Image url.." />
-                <label for="image3">Image 3 URL</label>
-                <input type="text" name="image3" placeholder="Enter Image url.." />
-                <button class="btn" type="submit">Save changes</button>
-              </div>
-        
-            </div>
-              </div>
-              <div class="col-md-7 col-xxl-12">
-                <div class="new-arrival-content position-relative">
-                  <input
-                    type="text"
-                    class="room_name"
-                    name="room_name"
-                    value="Solid Women's V-neck Dark T-Shirt"
-                    disabled
-                  />
-                  <div class="comment-review star-rating">
-                    <ul>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <span class="dollar_sign"
-                      >$<input
-                        type="number"
-                        name="price"
-                        class="price"
-                        value="480.00"
-                        disabled
-                    /></span>
-                  </div>
-                  <label for="status">Availability </label>:
-                  <input name="status" class="item" type="checkbox" disabled />
-                  <label for="max_occupancy"> Max-Capacity </label>:
-                  <input
-                    type="number"
-                    name="max_occupancy"
-                    class="minor_room_detail"
-                    disabled
-                    value="0"
-                  />
-                  <input
-                    type="text"
-                    name="view"
-                    class="minor_room_details"
-                    disabled
-                    value="Lake view"
-                  />
-                  <input
-                    type="text"
-                    name="width"
-                    class="minor_room_detail"
-                    disabled
-                    value="50 sq2"
-                  />
-                  <textarea
-                    disabled
-                    name="description"
-                    class="text-content"
-                    rows="5"
-                    cols="50"
-                  >
- There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</textarea
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-12 col-xl-6">
-        <div class="card">
-          <div class="card-body">
-            <div class="row m-b-30">
-              <div class="col-md-5 col-xxl-12">
-                <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
-                  <div class="new-arrivals-img-contnent">
-                    <img
-                      class="img-fluid"
-                      src="https://images.pexels.com/photos/6434630/pexels-photo-6434630.jpeg"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <button id="editImgs" class="editImgs">Edit Images</button>
-              </div>
-              <div class="col-md-7 col-xxl-12">
-                <div class="new-arrival-content position-relative">
-                  <input
-                    type="text"
-                    class="room_name"
-                    name="room_name"
-                    value="Solid Women's V-neck Dark T-Shirt"
-                    disabled
-                  />
-                  <div class="comment-review star-rating">
-                    <ul>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <span class="dollar_sign"
-                      >$<input
-                        type="number"
-                        name="price"
-                        class="price"
-                        value="480.00"
-                        disabled
-                    /></span>
-                  </div>
-                  <label for="status">Availability </label>:
-                  <input name="status" class="item" type="checkbox" disabled />
-                  <label for="max_occupancy"> Max-Capacity </label>:
-                  <input
-                    type="number"
-                    name="max_occupancy"
-                    class="minor_room_detail"
-                    disabled
-                    value="0"
-                  />
-                  <input
-                    type="text"
-                    name="view"
-                    class="minor_room_details"
-                    disabled
-                    value="Lake view"
-                  />
-                  <input
-                    type="text"
-                    name="width"
-                    class="minor_room_detail"
-                    disabled
-                    value="50 sq2"
-                  />
-                  <textarea
-                    disabled
-                    name="description"
-                    class="text-content"
-                    rows="5"
-                    cols="50"
-                  >
- There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</textarea
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-12 col-xl-6">
-        <div class="card">
-          <div class="card-body">
-            <div class="row m-b-30">
-              <div class="col-md-5 col-xxl-12">
-                <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
-                  <div class="new-arrivals-img-contnent">
-                    <img
-                      class="img-fluid"
-                      src="https://images.pexels.com/photos/6394567/pexels-photo-6394567.jpeg"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <button id="editImgs" class="editImgs">Edit Images</button>
-              </div>
-              <div class="col-md-7 col-xxl-12">
-                <div class="new-arrival-content position-relative">
-                  <input
-                    type="text"
-                    class="room_name"
-                    name="room_name"
-                    value="Solid Women's V-neck Dark T-Shirt"
-                    disabled
-                  />
-                  <div class="comment-review star-rating">
-                    <ul>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <span class="dollar_sign"
-                      >$<input
-                        type="number"
-                        name="price"
-                        class="price"
-                        value="480.00"
-                        disabled
-                    /></span>
-                  </div>
-                  <label for="status">Availability </label>:
-                  <input name="status" class="item" type="checkbox" disabled />
-                  <label for="max_occupancy"> Max-Capacity </label>:
-                  <input
-                    type="number"
-                    name="max_occupancy"
-                    class="minor_room_detail"
-                    disabled
-                    value="0"
-                  />
-                  <input
-                    type="text"
-                    name="view"
-                    class="minor_room_details"
-                    disabled
-                    value="Lake view"
-                  />
-                  <input
-                    type="text"
-                    name="width"
-                    class="minor_room_detail"
-                    disabled
-                    value="50 sq2"
-                  />
-                  <textarea
-                    disabled
-                    name="description"
-                    class="text-content"
-                    rows="5"
-                    cols="50"
-                  >
- There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</textarea
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-12 col-xl-6">
-        <div class="card">
-          <div class="card-body">
-            <div class="row m-b-30">
-              <div class="col-md-5 col-xxl-12">
-                <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
-                  <div class="new-arrivals-img-contnent">
-                    <img
-                      class="img-fluid"
-                      src="https://images.pexels.com/photos/6394559/pexels-photo-6394559.jpeg"
-                      alt=""
-                    />
-                  </div> 
-                </div>
-                <button id="editImgs" class="editImgs">Edit Images</button>
-                   The Modal 
-            <div id="imgModal" class="modal">
+/* Style input fields */
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 7px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+</style>
 
-               Modal content 
-              <div class="modal-content">
-                <legend>Change the hotel images</legend>
-                <button class="btn-close">X</button>
-                <label for="image1">Image 1 URL</label>
-                <input type="text" name="image1" placeholder="Enter Image url.." />
-                <label for="image2">Image 2 URL</label>
-                <input type="text" name="image2" placeholder="Enter Image url.." />
-                <label for="image3">Image 3 URL</label>
-                <input type="text" name="image3" placeholder="Enter Image url.." />
-                <button class="btn" type="submit">Save changes</button>
-              </div>
-        
-            </div>
-              </div>
-              <div class="col-md-7 col-xxl-12">
-                <div class="new-arrival-content position-relative">
-                  <input
-                    type="text"
-                    class="room_name"
-                    name="room_name"
-                    value="Solid Women's V-neck Dark T-Shirt"
-                    disabled
-                  />
-                  <div class="comment-review star-rating">
-                    <ul>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <span class="dollar_sign"
-                      >$<input
-                        type="number"
-                        name="price"
-                        class="price"
-                        value="480.00"
-                        disabled
-                    /></span>
-                  </div>
-                  <label for="status">Availability </label>:
-                  <input name="status" class="item" type="checkbox" disabled />
-				  <label for="max_occupancy"> Max-Capacity </label>:
-                  <input
-                    type="number"
-                    name="max_occupancy"
-                    class="minor_room_detail"
-                    disabled
-                    value="0"
-                  />
-                  <input
-                    type="text"
-                    name="view"
-                    class="minor_room_details"
-                    disabled
-                    value="Lake view"
-                  />
-                  <input
-                    type="text"
-                    name="width"
-                    class="minor_room_detail"
-                    disabled
-                    value="50 sq2"
-                  />
-                  <textarea
-                    disabled
-                    name="description"
-                    class="text-content"
-                    rows="5"
-                    cols="50"
-                  >
- There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</textarea
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-12 col-xl-6">
-        <div class="card">
-          <div class="card-body">
-            <div class="row m-b-30">
-              <div class="col-md-5 col-xxl-12">
-                <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
-                  <div class="new-arrivals-img-contnent">
-                    <img
-                      class="img-fluid"
-                      src="https://images.pexels.com/photos/3554424/pexels-photo-3554424.jpeg"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <button id="editImgs"  class="editImgs">Edit Images</button>
-              </div>
-              <div class="col-md-7 col-xxl-12">
-                <div class="new-arrival-content position-relative">
-                  <h4>
-                    <a href="ecom-product-detail.html"
-                      >Solid Women's V-neck Dark T-Shirt</a
-                    >
-                  </h4>
-                  <div class="comment-review star-rating">
-                    <ul>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <p class="price">$600.00</p>
-                  </div>
-                  <p>
-                    Availability:
-                    <span class="item">
-                      In stock <i class="fa fa-check-circle text-success"></i
-                    ></span>
-                  </p>
-                  <p>Product code: <span class="item">0405689</span></p>
-                  <p>Brand: <span class="item">Lee</span></p>
-                  <p class="text-content">
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration in some
-                    form, by injected humour, or randomised words.
-                  </p>
-                </div>
-              </div>
-            </div> 
-          </div>
-        </div>
-      </div> -->
-
-
-{% block customJs %}<script src="{{ url_for('static', filename='admin/js/edit-rooms-info.js') }}"></script>{% endblock customJs %}
+{% block customJs %}<script src="../../static/admin/js/edit-rooms-info.js"></script>{% endblock customJs %}
  {% endblock %}

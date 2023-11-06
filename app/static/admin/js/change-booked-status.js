@@ -1,34 +1,3 @@
-function changeStatus(clickedElement, currentStatus)
-{
-     // Get references to the elements
-     let statusSpan = clickedElement.closest('.btn-reveal-trigger').querySelector('.statusSpan');
-
-    // Check the currentStatus parameter and update the span's style and text accordingly 
-    if (currentStatus == 'Approved'){
-        statusSpan.classList.remove('default', 'cancelled')
-        // change the class to approved
-        statusSpan.classList.add('approved')
-        // change the textcontent
-        statusSpan.textContent = 'Approved';
-        // add the check mark icon
-        var checkMarkIcon = document.createElement('span');
-        checkMarkIcon.classList.add('ms-1', 'fa', 'fa-check')
-        statusSpan.appendChild(checkMarkIcon);
-    }
-    else if (currentStatus == 'Cancelled') {
-        statusSpan.classList.remove('default', 'approved')
-        statusSpan.classList.add('cancelled')
-        statusSpan.textContent = 'Cancelled'
-
-        //  remove checkmark icon
-        var checkmarkIcon = statusSpan.querySelector('.fa-check');
-        if (checkmarkIcon) {
-          statusSpan.removeChild(checkmarkIcon);
-        }
-    }
-
-}
-
 // Attach a click event handler to the "Delete" anchor tag 
 document.querySelectorAll('.delete-item').forEach(deleteLink => {
     deleteLink.addEventListener('click', () => {
@@ -40,3 +9,37 @@ document.querySelectorAll('.delete-item').forEach(deleteLink => {
     })
 })
 
+function updateBookingStatus(clickedElement, newStatus) {
+    const bookingId = clickedElement.getAttribute('data-booking-id');
+    
+    // Make an AJAX request to update the booking status in the database
+    fetch(`/update-booking-status/${bookingId}`, {
+        method: 'POST',
+        body: JSON.stringify({ newStatus }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Update the statusSpan and other elements as needed
+            const statusSpan = document.querySelector(`.statusSpan[data-booking-id="${bookingId}"]`);
+            if (statusSpan) {
+                statusSpan.textContent = newStatus;
+                // Update styling as needed (e.g., add the checkmark icon)
+                if (newStatus === 'Approved') {
+                    statusSpan.classList.remove('default', 'cancelled');
+                    statusSpan.classList.add('approved');
+                } else if (newStatus === 'Cancelled') {
+                    statusSpan.classList.remove('default', 'approved');
+                    statusSpan.classList.add('cancelled');
+                }
+            }
+        } else {
+            console.error('Failed to update booking status');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}

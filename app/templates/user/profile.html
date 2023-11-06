@@ -44,33 +44,33 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="cart__product__item">
-                                    <img src="../../static/user/assets1/img/pexels-binyamin-mellish-106399.jpg" alt="">
-                                </td>
-                                <td class="cart__price">Product Name</td>
-                                <td class="cart__quantity">$ 170.0</td>
-                                <td class="cart__total"><span class="bi bi-hand-thumbs-down"></span></td>
-                                <td class="cart__close"><span class="bi bi-x"></span></td>
-                            </tr>
-                            <tr>
-                                <td class="cart__product__item">
-                                    <img src="../../static/user/assets1/img/pexels-pixabay-276554.jpg" alt="">
-                                </td>
-                                <td class="cart__price">Product Name</td>
-                                <td class="cart__quantity">$ 85.0</td>
-                                <td class="cart__total"><span class="bi bi-hand-thumbs-down"></span></td>
-                                <td class="cart__close"><span class="bi bi-x"></span></td>
-                            </tr>
-                            <tr>
-                                <td class="cart__product__item">
-                                    <img src="../../static/user/assets1/img/pexels-pixabay-53610.jpg" alt="">
-                                </td>
-                                <td class="cart__price">Product Name</td>
-                                <td class="cart__quantity">$ 55.0</td>
-                                <td class="cart__total"><span class="bi bi-hand-thumbs-down"></span></td>
-                                <td class="cart__close"><span class="bi bi-x"></span></td>
-                            </tr>
+                            {% if not bookings %}
+                                <tr>
+                                    <td colspan="5" class="text-center">No bookings yet</td>
+                                </tr>
+                            {% else %}
+                                {% for booking in bookings %}
+                                    <tr>
+                                        <td class="cart__product__item">
+                                            <img src="{{ booking.room.image1 }}" alt="{{ booking.room.room_name }}">
+                                        </td>
+                                        <td class="cart__price">{{ booking.room.room_name }}</td>
+                                        <td class="cart__quantity">$ {{ booking.room.price }}</td>
+                                        <td class="cart__total">
+                                            {% if booking.status == "pending" %}
+                                                <span class="text-secondary">Pending</span>
+                                            {% elif booking.status == "Approved" %}
+                                                <span class="text-success">Approved</span>
+                                            {% else %}
+                                                <span class="text-danger">Cancelled</span>
+                                            {% endif %}
+                                        </td>
+                                        <td class="cart__close">
+                                            <a href="{{ url_for('user.cancel_booking', booking_id=booking.id) }}"><span class="bi bi-x"></span></a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% endif %}
                         </tbody>
                     </table>
                 </div>
@@ -81,7 +81,8 @@
                 <div class="top-content">
                     <form id="image-upload-form" action="{{ url_for('user.upload_image') }}" method="POST" enctype="multipart/form-data">
                         <input type="file" id="image-upload-input" name="img" accept="image/*" style="display: none">
-                        <img src="{{ user.image }}" id="upload-button" alt="Upload Image" onclick="document.getElementById('image-upload-input').click()">
+                        <img src="{{ user.image }}" id="upload-button" alt="Upload Image" onclick="document.getElementById('image-upload-input').click()"
+                        style="height: auto; width: 12vw;">
                     </form>                               
                     
                     <!-- Viewing mode -->

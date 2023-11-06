@@ -7,11 +7,11 @@ Rooms - Miriamar
 {% block parent_content %}
 <div class="container-fluid ">
     <div class="row overlay justify-content-evenly mt-3 mb-3">
-
+      {% for room in rooms %}
         <div class="col-lg-4 col-md-6 col-sm-12 room-card">
-          <a href="{{ url_for('user.room_deets') }}">
+          <a href="{{ url_for('user.room_deets', room_id=room.id) }}">
             <div class="room-image">
-              <img src="https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Room Image">
+              <img src="{{ room.image1 }}" alt="Room Image">
               <div class="bottom-left">
                 <div class="stars">
                   <i class="fa fa-star"></i>
@@ -21,65 +21,17 @@ Rooms - Miriamar
               </div>
 
               <div class="bottom-right">
-                <div class="price">$150/night</div>
-                <div class="" style="color: black;"><h1>Premium</h1></div>
+                <div class="price">$ {{ room.price }}</div>
+                <div class="" style="color: black;"><h1>{{ room.room_name }}</h1></div>
               </div>
             </div>
           </a>
 
           <div class="room-details">
-            <p class="room-width">40 m2 . Balcony . Lake view</p>
+            <p class="room-width">{{ room.width }} . {{ room.view }}</p>
           </div>
         </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-12 room-card">
-          <a href="{{ url_for('user.room_deets') }}">
-            <div class="room-image">
-              <img src="https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Room Image">
-              <div class="bottom-left">
-                <div class="stars">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                </div>
-              </div>
-
-              <div class="bottom-right">
-                <div class="price">$150/night</div>
-                <div class="" style="color: black;"><h1>Premium</h1></div>
-              </div>
-            </div>
-          </a>
-
-          <div class="room-details">
-            <p class="room-width">40 m2 . Balcony . Lake view</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-12 room-card">
-          <a href="room_details.html">
-            <div class="room-image">
-              <img src="https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Room Image">
-              <div class="bottom-left">
-                <div class="stars">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                </div>
-              </div>
-
-              <div class="bottom-right">
-                <div class="price">$150/night</div>
-                <div class="" style="color: black;"><h1>Premium</h1></div>
-              </div>
-            </div>
-          </a>
-
-          <div class="room-details">
-            <p class="room-width">40 m2 . Balcony . Lake view</p>
-          </div>
-        </div>
-
+        {% endfor %} 
 
     </div>
 </div>

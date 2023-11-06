@@ -1,7 +1,9 @@
 from functools import wraps
 from flask import request, redirect, session, url_for, flash
+from flask_jwt_extended import get_jwt_identity
 from flask_login import current_user
 from datetime import datetime
+from ..models import Token
 
 # Cheecks if it is an admin, if the admin is authenticated and also if their token has expired
 def admin_required(fn):
@@ -21,22 +23,15 @@ def admin_required(fn):
 
     return wrapper
 
-# Checks if the user's token has expired
-def token_expired(fn):
-    @wraps(fn)
-    def wrapper(*args, **kwargs):
-        if not current_user.is_authenticated:
-            flash("You need to sign in to access this page", "error")
-            return redirect(url_for("user.register_page"))
+# Updated user session check function, checks if a user is authenticated and session has not expired
+def user_logged_in(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if "user_token" not in session:
+            return redirect(url_for("user.register_page"))  # Redirect to sign-up page
+        return f(*args, **kwargs)
 
-        # Check if the user's token is not expired (assuming you're using JWT)
-        if current_user.token_expiration < datetime.utcnow():
-            flash("Your session has expired. Please log in again.", "error")
-            return redirect(url_for("user.login_page"))
-
-        return fn(*args, **kwargs)
-
-    return wrapper
+    return decorated_function
 
 def user_exists_required(view_function):
     @wraps(view_function)

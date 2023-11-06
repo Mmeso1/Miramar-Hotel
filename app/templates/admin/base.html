@@ -61,7 +61,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header"  style="background-color: #8D72C2;">
-            <a href="{{ url_for('user.landing_page') }}" class="brand-logo navbar-brand">
+            <a href="{{ url_for('user.landing_page') }}" target="_blank" class="brand-logo navbar-brand">
 					<img class="" src="{{ url_for('static', filename='user/Hotel_Black.png') }}" width="140" alt="Logo">
             </a>
             <div class="nav-control">
@@ -692,7 +692,7 @@
 							
 							<li class="nav-item dropdown  header-profile">
 								<a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
-									<img src="{{ url_for('static', filename='admin/images/user.jpg') }}" width="56" alt="">
+									<img src="../../static/user_uploads/Rondoval_Suites.jpg" width="56" alt="">
 								</a>
 								<div class="dropdown-menu dropdown-menu-end">
 									<a href="app-profile.html" class="dropdown-item ai-icon">

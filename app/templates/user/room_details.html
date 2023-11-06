@@ -7,24 +7,25 @@ Room-details - Miramar
 {% include "alerts.html" %}
 {% block content %}
 <div class="container mt-5">
+
     <div class="room-deets">
-        <h1 class="room-name auth_font">Luxury Suite</h1>
+        <h1 class="room-name auth_font">{{ room.room_name }}</h1>
         <div class="hotel-info">
             <div class="info-item d-flex">
                 <i class="fas fa-users mx-1"></i>
-                <p class="mx-1">2 People</p>
+                <p class="mx-1">{{ room.max_occupancy }} People</p>
             </div>
             <div class="info-item d-flex">
                 <i class="fas fa-square mx-1"></i>
-                <p class="mx-1">50 m2</p>
+                <p class="mx-1">{{ room.width }}</p>
             </div>
         </div>        
     </div>    
 
     <div class="room-carousel owl-carousel">
-        <div><img src="https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg?auto=compress&cs=tinysrgb" alt="Image 1"></div>
-        <div><img src="https://images.pexels.com/photos/271631/pexels-photo-271631.jpeg?auto=compress&cs=tinysrgb" alt="Image 2"></div>
-        <div><img src="https://images.pexels.com/photos/271815/pexels-photo-271815.jpeg?auto=compress&cs=tinysrgb" alt="Image 3"></div>
+        <div><img src="{{ room.image1 }}" alt="Image 1"></div>
+        <div><img src="{{ room.image2 }}" alt="Image 2"></div>
+        <div><img src="{{ room.image3 }}" alt="Image 3"></div>
     </div>
 
     <div class="room-deets mt-5">
@@ -32,10 +33,7 @@ Room-details - Miramar
             <div class="col-md-8">
                 <div class="room-description deets_bg">
                     <h2 class="ff_marce mb-5">Description</h2>
-                    <p class="normal_deets_font">This is a beautiful luxury suite with all the amenities you need for a comfortable stay.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, eveniet pariatur. Dolorem alias amet voluptate magnam hic, est dolore quasi doloribus praesentium natus nisi corrupti at quibusdam ea possimus et? <br>
-                        <br>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid saepe debitis voluptas eum blanditiis? Autem officiis quas architecto provident vitae, odio, omnis ipsa, necessitatibus aspernatur totam ullam aliquid vero minima?
+                    <p class="normal_deets_font">{{ room.description }} <br>
                     </p>
                 </div>
 
@@ -72,15 +70,15 @@ Room-details - Miramar
             </div>
 
             <div class="col-md-4">
-                <div class="booking-form card">
+                <div class="booking-form card mb-3">
                     <div class="card-top">
-                        <p class="price tal">from <br> <span class="font-sz-sm-md" style="font-size: 2.5rem">$200</span>/night</p>
+                        <p class="price tal">from <br> <span class="font-sz-sm-md" style="font-size: 2.5rem">{{ room.price }}</span>/night</p>
                     </div>
                     <div class="card-body">
                         <div class="mb-4 tal">
                             <h4 class="ff_marce">Booking Form</h4>
                         </div>
-                        <form action="" method="POST">
+                        <form action="{{ url_for('room.book_room', room_id=room.id) }}" method="POST">
                             <div class="form-group">
                                 <i class="fa-regular fa-calendar-days"></i>
                                 <input type="text" class="flatpickr-input" id="customDatePicker" name="date_of_arrival"  placeholder="Arrival Date">
