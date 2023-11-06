@@ -89,8 +89,8 @@
     font-size: 2.5rem;
     color: #ffe500;
     position: relative;
-    top: 20px;
-    left: 30px;
+    top: 90px;
+    left: 50px;
     cursor: pointer;
   }
   #location2 {
@@ -98,8 +98,8 @@
     color: #fff;
     cursor: pointer;
     position: relative;
-    top: 450px;
-    left: -80px;
+    top: 500px;
+    left: 380px;
   }
   #location2:hover {
     color: #ffe500;
@@ -127,15 +127,15 @@
     cursor: pointer;
     position: relative;
     top: 200px;
-    left: 200px;
+    left: 400px;
   }
   #location5 {
     font-size: 2rem;
     color: #fff;
     cursor: pointer;
     position: relative;
-    top: 370px;
-    left: -200px;
+    top: 300px;
+    left: 200px;
   }
   
   .nearbyplaces_map_con_times_square_con_text {
@@ -416,6 +416,9 @@
     .nearbyplaces_times_square_and_map_con {
       height: auto;
     }
+    .nearbyplaces_map_con_times_square_con_img{
+      width: 97%;
+    }
     .nearbyplaces_map_con_map {
       height: 350px;
     }
@@ -433,6 +436,7 @@
     }
     #location5 {
       top: 100px;
+      left: 70px;
     }
     .nearbyplaces_map_con_times_square_con {
       height: fit-content;
@@ -455,7 +459,7 @@
     }
     .nearbyplaces_map_con,
     .highlights_items_con {
-      padding: 0 0.9rem;
+      padding: 0 0.7rem;
     }
     .highlights_con {
       margin: 5rem 0 1rem 0;
